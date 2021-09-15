@@ -10,6 +10,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { HomeComponent } from './pages/home/home.component';
+import { IdBadgeComponent } from './components/id-badge/id-badge.component';
 
 //Angular Material
 
@@ -28,7 +30,9 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    HomeComponent,
+    IdBadgeComponent
   ],
   imports: [
     BrowserModule,
