@@ -11,6 +11,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 // Angular Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Project Pages
 import { HomeComponent } from './pages/home/home.component';
@@ -21,6 +22,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { IdBadgeComponent } from './components/id-badge/id-badge.component';
   import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; //qr-code
   import { NgxPrintModule } from 'ngx-print';
+
 
 
 const firebaseConfig = {
@@ -44,7 +46,7 @@ const firebaseConfig = {
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule, // Firebase Imports
-    NgxQRCodeModule, NgxPrintModule,
+    NgxQRCodeModule, NgxPrintModule, BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
