@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 // Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 // Project Pages
 import { HomeComponent } from './pages/home/home.component';
@@ -46,7 +47,8 @@ const firebaseConfig = {
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule, // Firebase Imports
-    NgxQRCodeModule, NgxPrintModule, BrowserAnimationsModule,
+    NgxQRCodeModule, NgxPrintModule,
+    BrowserAnimationsModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
