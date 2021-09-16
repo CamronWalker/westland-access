@@ -1,0 +1,39 @@
+.hidden {
+    display: none;
+  }
+  
+  .mat-form-field {
+    width: 100%
+  }
+
+  #scanner-form {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  mat-button {
+    background-color: red;
+  }
+
+  .mat-grid-tile-custom {
+    // height: 100%;
+    margin: 15px;
+    // justify-content: flex-start !important;
+    // align-items: flex-start !important;
+    //border: 1px solid red;
+
+  }
+  mat-grid-tile {
+    border-radius: 15px;
+  }
+
+  ::ng-deep snack-bar-container.snack-exists {
+    background: lime;
+    color: black;
+  }
+  ::ng-deep .snack-exists .mat-simple-snackbar-action {   color: black; }
+
+  ::ng-deep snack-bar-container.snack-error {
+    background: red;
+  }

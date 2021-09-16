@@ -36,6 +36,9 @@ import { IdBadgeComponent } from './components/id-badge/id-badge.component';
 import { NavComponent } from './components/nav/nav.component';
   import { LayoutModule } from '@angular/cdk/layout';
 
+import { ScannerComponent } from './components/scanner/scanner.component';
+  import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRLq3j-Yy6XhohnCb7xTSZUCJNluwrfaU",
@@ -53,13 +56,14 @@ const firebaseConfig = {
     UserProfileComponent,
     HomeComponent,
     IdBadgeComponent,
-    NavComponent
+    NavComponent,
+    ScannerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule, // Firebase Imports
-    NgxQRCodeModule, NgxPrintModule,
+    NgxQRCodeModule, NgxPrintModule, ZXingScannerModule,
     BrowserAnimationsModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule
   ],
   providers: [],
