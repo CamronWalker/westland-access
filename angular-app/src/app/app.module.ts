@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; //qr-code
 
 // Firebase
 import { AngularFireModule } from '@angular/fire/compat';
@@ -16,6 +17,7 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 // Project Components
 import { HomeComponent } from './pages/home/home.component';
 import { IdBadgeComponent } from './components/id-badge/id-badge.component';
+
 
 
 
@@ -39,7 +41,8 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule // Firebase Imports
+    AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule, // Firebase Imports
+    NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

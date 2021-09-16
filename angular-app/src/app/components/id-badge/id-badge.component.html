@@ -5,9 +5,19 @@
     </div>
 
     <div class="id-info">
-
+        {{name}}
+        {{company}}
+        {{trade}}
     </div>
-    <div class="qr-code">
-        
+        <div class="qr-code-div">
+            <ngx-qrcode 
+            [elementType]="elementType" 
+            [errorCorrectionLevel]="errorLevel"
+            [value]="codeValue"
+            cssClass="qr-code"
+            [margin]="0"
+            [width]="150"
+            >
+                  </ngx-qrcode>
     </div>
 </div>
