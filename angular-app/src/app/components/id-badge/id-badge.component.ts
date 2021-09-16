@@ -10,7 +10,8 @@ export class IdBadgeComponent implements OnInit {
   @Input() name!: string;
   @Input() company!: string;
   @Input() trade!: string;
-
+  @Input() idNumber!: string;
+  @Input() profilePic!: string;
 
   @Input() codeValue!: string;
   title = 'app';

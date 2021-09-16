@@ -5,19 +5,28 @@
     </div>
 
     <div class="id-info">
-        {{name}}
-        {{company}}
-        {{trade}}
+        <p>{{name}}</p>
+        <p>{{company}}</p>
+        <p>{{trade}}</p>
     </div>
-        <div class="qr-code-div">
-            <ngx-qrcode 
-            [elementType]="elementType" 
-            [errorCorrectionLevel]="errorLevel"
-            [value]="codeValue"
-            cssClass="qr-code"
-            [margin]="0"
-            [width]="150"
-            >
-                  </ngx-qrcode>
+    <div class="column-container">
+        <div class="id-left-column">
+            <div class="qr-code-div">
+                <ngx-qrcode 
+                    [elementType]="elementType" 
+                    [errorCorrectionLevel]="errorLevel"
+                    [value]="codeValue"
+                    cssClass="qr-code"
+                    [margin]="0"
+                    [width]="150"
+                    >
+                </ngx-qrcode>
+            </div>
+        </div>
+        <div class="id-right-column">
+            <img [src]="profilePic">
+            <p>{{idNumber}}</p>
+            <img src="../../../assets/Westland_Logo.png">
+        </div>
     </div>
 </div>
