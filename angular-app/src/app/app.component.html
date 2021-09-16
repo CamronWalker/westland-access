@@ -1,10 +1,14 @@
-<app-id-badge
-codeValue="https://westland-access.web.app/S590/178"
-name="Camron Walker"
-company="Westland Construction"
-trade="General Contractor"
-idNumber="178"
-profilePic="https://lh3.googleusercontent.com/a-/AOh14Gi_xI5HzvhDa4U-o-A1zwW7Rwu38UBEiICt0UPATH4=s96-c"
-></app-id-badge>
+<div id="idCard-print">
+    <app-id-badge
+        codeValue="https://westland-access.web.app/S590/178"
+        name="Camron Walker"
+        company="Westland Construction"
+        trade="General Contractor"
+        idNumber="178"
+        profilePic="https://lh3.googleusercontent.com/a-/AOh14Gi_xI5HzvhDa4U-o-A1zwW7Rwu38UBEiICt0UPATH4=s96-c"
+        ></app-id-badge>
+</div>
+
+<button [useExistingCss]="true" printSectionId="idCard-print" ngxPrint>print</button> 
 
 <router-outlet></router-outlet>
