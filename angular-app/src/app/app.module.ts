@@ -3,22 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; //qr-code
 
 // Firebase
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 // Angular Material
 
-// Project Components
+// Project Pages
 import { HomeComponent } from './pages/home/home.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+
+// Project Components
+
 import { IdBadgeComponent } from './components/id-badge/id-badge.component';
-
-
+  import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; //qr-code
 
 
 const firebaseConfig = {

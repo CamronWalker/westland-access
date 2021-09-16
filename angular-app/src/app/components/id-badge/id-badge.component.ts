@@ -16,7 +16,7 @@ export class IdBadgeComponent implements OnInit {
   @Input() codeValue!: string;
   title = 'app';
   errorLevel!: NgxQrcodeErrorCorrectionLevels.MEDIUM;
-  elementType!: NgxQrcodeElementTypes.URL
+  elementType!: NgxQrcodeElementTypes.URL;
 
   constructor() { }
 
