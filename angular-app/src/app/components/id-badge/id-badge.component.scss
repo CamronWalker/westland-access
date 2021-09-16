@@ -11,9 +11,10 @@
 
 .title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 34px;
+    font-size: 28px;
+    font-weight: 600;
     text-align: center;
-    padding-top: 25px;
+    padding-top: 15px;
 }
 .punch-oval {
     text-align: center;
@@ -26,6 +27,7 @@
 }
 
 .qr-code-div {
+    padding-top: 75px;
     width: 100%;
 }
 
@@ -54,11 +56,23 @@
     margin: 0;
 }
 
-.id-right-column img { //hard code a height & width for the profilePic and seporate it from the westland logo
+.id-right-column img.profilePic-class{
+    width: 105px;
+    height: 140px;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
+
+.id-right-column img.Westland_Logo-class{
     width: 100%;
 }
 .column-container {
     display: flex;
     margin: 10px;
+    justify-content: center;
+    align-items: center;
 
 }
