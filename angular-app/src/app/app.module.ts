@@ -14,9 +14,18 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
+import { MatCardModule } from '@angular/material/card';
+
+
 // Project Pages
 import { HomeComponent } from './pages/home/home.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+  //MatCardModule
 
 // Project Components
 
@@ -24,6 +33,8 @@ import { IdBadgeComponent } from './components/id-badge/id-badge.component';
   import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode'; //qr-code
   import { NgxPrintModule } from 'ngx-print';
 
+import { NavComponent } from './components/nav/nav.component';
+  import { LayoutModule } from '@angular/cdk/layout';
 
 
 const firebaseConfig = {
@@ -41,14 +52,15 @@ const firebaseConfig = {
     AppComponent,
     UserProfileComponent,
     HomeComponent,
-    IdBadgeComponent
+    IdBadgeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule, // Firebase Imports
     NgxQRCodeModule, NgxPrintModule,
-    BrowserAnimationsModule, MatButtonModule
+    BrowserAnimationsModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
