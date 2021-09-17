@@ -5,6 +5,8 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 interface Project {
@@ -23,6 +25,7 @@ export class NavComponent implements OnInit{
   projectForm!: FormGroup;
   projectsCollection!: AngularFirestoreCollection<Project>;
   projectsList$: any;
+  startProject: string;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -36,9 +39,17 @@ export class NavComponent implements OnInit{
     public auth: AuthService,
     private fb: FormBuilder, 
     private afs: AngularFirestore,
+    private route: ActivatedRoute
     ) {}
 
 ngOnInit() {
+  
+  this.route.queryParams.subscribe(async params => {
+    this.startProject = params['project'];
+    
+  })
+
+
   this.auth.user$.subscribe(user => {
     this.projectsCollection = this.afs.collection('projects', ref => {
       return ref.where('projectUsers', 'array-contains', user.uid);
@@ -47,6 +58,7 @@ ngOnInit() {
     this.projectsCollection.valueChanges({ idField: 'id' }).subscribe(proj => {
       this.projectsList$ = proj;
       //console.log(this.projectsList$)
+      this.projectForm.get('projectDrop').setValue(this.startProject)
     })
 
 
