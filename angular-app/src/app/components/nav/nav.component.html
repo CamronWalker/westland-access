@@ -30,8 +30,8 @@
           <mat-form-field class="project-form" appearance="fill">
             <mat-label>Project</mat-label>
             <mat-select formControlName="projectDrop">
-              <mat-option *ngFor="let food of foods" [value]="food.projectValue">
-                {{food.viewValue}}
+              <mat-option *ngFor="let project of projectsList$" [value]="project.id">
+                {{project.id}} - {{project.projectName}}
               </mat-option>
             </mat-select>
           </mat-form-field>
