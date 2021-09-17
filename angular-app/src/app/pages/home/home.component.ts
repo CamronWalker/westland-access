@@ -1,5 +1,5 @@
 import { Component, ContentChild, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
-
+import { NavComponent } from 'src/app/components/nav/nav.component';
 
 
 @Component({
@@ -9,16 +9,18 @@ import { Component, ContentChild, Input, OnChanges, OnInit, SimpleChange } from 
 })
 export class HomeComponent implements OnInit, OnChanges {
   
-  @Input() projectValue: string | undefined;
-
-  constructor() { }
+  //@Input() projectValue: string | undefined;
+@ContentChild(NavComponent) projectValue!: string; 
+  
+  constructor(
+    public nav: NavComponent,
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.nav.projectNumber)
   }
 
   ngOnChanges(changes: any) {
-    this.projectValue = changes.projectValue.value;
-    console.log(this.projectValue)
   }
 
 }
