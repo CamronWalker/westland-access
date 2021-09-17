@@ -5,7 +5,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar routerLink="/">Inventory</mat-toolbar>
+    <mat-toolbar routerLink="/">WPA</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/scanner" (click)="drawer.toggle()">Scanner</a>
       <a mat-list-item routerLink="/project" (click)="drawer.toggle()">Project</a>
@@ -21,7 +21,28 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span routerLink="/" >Inventory</span>
+      <span routerLink="/" >WPA</span>
+
+
+
+      <div class="project-select-container">
+        <mat-form-field class="project-form" appearance="fill">
+          <mat-label>Project</mat-label>
+          <mat-select (selectionChange)="updateSelection($event)">
+            <mat-option *ngFor="let food of foods" [value]="food.projectValue">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+
+
+
+
+
       <span class="nav-spacer"></span>
       <span [ngClass]="{hidden: (isHandset$ | async)}">
         <a routerLink="/scanner">Scanner</a>
@@ -34,7 +55,7 @@
     </mat-toolbar>
     <!-- Add Content Here -->
     <div class="content">
-      <ng-content></ng-content>
+      <ng-content [projectValue]="value"></ng-content>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
