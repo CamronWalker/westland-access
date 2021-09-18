@@ -16,7 +16,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Item Number</mat-label>
-                    <input matInput type="text" (keyup.enter)="searchItem()" formControlName="searchField">
+                    <input matInput type="text" autofocus (keyup.enter)="searchItem()" formControlName="searchField"> <!--TODO: Create auto focus directive. https://jhapriti09.medium.com/autofocus-directive-that-works-in-angular-10-db352ef70399--> 
                 </mat-form-field>
                 
                 <!-- <button mat-raised-button color="accent" (click)="searchItem()">Search</button> -->

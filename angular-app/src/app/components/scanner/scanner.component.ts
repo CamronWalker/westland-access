@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { BreakpointServiceService } from 'src/app/services/breakpoint-service.service';
 import { NavComponent } from 'src/app/components/nav/nav.component';
 import { CustomSnackBarService } from 'src/app/services/custom-snack-bar.service';
+import { Scan } from './scan.model';
 
 @Component({
   selector: 'app-scanner',
@@ -38,17 +39,35 @@ export class ScannerComponent implements OnInit {
     this.scannerForm = this.fb.group({
       searchField: '',
       showScanner: '',
-      navigateScanner: true,
+      navigateScanner: '',
     });
 
+    const lastScannedString = 'asdf' //given value to prevent error, need this to prevent duplicate scans
   }
 
   onCodeResult(resultString: string) {
-    this.snackbar.info(resultString, 2000, 'top')
+    if (this.lastScannedString === resultString) { //This can probably be done a better way with a debouncer but I couldn't fingure it out.
+      console.log(this.lastScannedString + ' is a duplicate scan.')
+    } else {
+      this.lastScannedString = resultString;
+      
+      // create a case for each type of qr code
+        // Link QR Codes
+          // if it's a qr code for a different project renavigate
+          // if no project is selected renavigate
+        // Number Qr Codes
+          // if no project is selected warn to select project
+      
+      // update accordingly and searchitem
+
+      this.snackbar.info(resultString, 4000, 'top')
+    }
+    
   }
 
   searchItem() {
-
+    // check if item exists
+    // log using Scan model or open
   }
 
 
