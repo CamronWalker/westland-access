@@ -2,6 +2,7 @@ export interface Scan {
     personId: string;
     scanResult: string;
     scanResultDesc?: string;
-    scanningUID: string;
+    scannerUID: string;
+    scannerName: string;
     timeScanned: Date;
   }
