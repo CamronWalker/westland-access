@@ -75,7 +75,7 @@ ngOnInit() {
       
       this.avbProject = checker(this.avbProjectsCheck) //boolean check if project exists in the projectsList$
 
-      if (this.avbProject) {
+      if (this.avbProject && this.startProject) {
         this.snackbar.error(`You don't have access to this project! (${this.startProject})`, 10000, 'top');
         console.log(`Error: (proj=${this.startProject}) User has no access to this project or the project doesn't exist!`)
       } 
