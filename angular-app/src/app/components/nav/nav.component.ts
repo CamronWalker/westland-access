@@ -5,7 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -26,6 +26,8 @@ export class NavComponent implements OnInit{
   projectsCollection!: AngularFirestoreCollection<Project>;
   projectsList$: any;
   startProject: string;
+  activatedRoute: ActivatedRoute;
+
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -33,19 +35,21 @@ export class NavComponent implements OnInit{
       shareReplay()
     );
   
+  
 
   constructor(
     private breakpointObserver: BreakpointObserver, 
     public auth: AuthService,
     private fb: FormBuilder, 
     private afs: AngularFirestore,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
     ) {}
 
 ngOnInit() {
   
   this.route.queryParams.subscribe(async params => {
-    this.startProject = params['project'];
+    this.startProject = params['proj'];
     
   })
 
@@ -57,6 +61,7 @@ ngOnInit() {
 
     this.projectsCollection.valueChanges({ idField: 'id' }).subscribe(proj => {
       this.projectsList$ = proj;
+
       //console.log(this.projectsList$)
       this.projectForm.get('projectDrop').setValue(this.startProject)
     })
@@ -72,16 +77,23 @@ ngOnInit() {
 
   this.projectForm.valueChanges.subscribe(proj => {
     this.projectNumber = proj.projectDrop;
+
+    
+
+    this.router.navigate(
+      [], {
+        relativeTo: this.activatedRoute,
+        queryParams: { proj: this.projectNumber},
+        queryParamsHandling: 'merge'
+      }
+
+    )
   })
 
  }
 
 
 
-    // foods: Food[] = [
-    //   {projectValue: 'steak-0', viewValue: 'Steak'},
-    //   {projectValue: 'pizza-1', viewValue: 'Pizza'},
-    //   {projectValue: 'tacos-2', viewValue: 'Tacos'}
-    // ];
+
 }
   
