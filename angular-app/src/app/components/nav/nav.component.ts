@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map, shareReplay, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
@@ -28,6 +28,8 @@ export class NavComponent implements OnInit{
   projectsList$: any;
   startProject: string;
   activatedRoute: ActivatedRoute;
+  avbProject: boolean;
+  avbProjectsCheck: boolean[];
 
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -35,6 +37,8 @@ export class NavComponent implements OnInit{
       map(result => result.matches),
       shareReplay()
     );
+  
+  
   
   
 
@@ -64,7 +68,18 @@ ngOnInit() {
     this.projectsCollection.valueChanges({ idField: 'id' }).subscribe(proj => {
       this.projectsList$ = proj;
 
-      //console.log(this.projectsList$)
+      //find a way to get this to check if the project exists if not then snackbar and error
+      this.avbProjectsCheck = proj.map(x => x.id === this.startProject)
+  
+      let checker = (arr: any[]) => arr.every(v => v === false) //I need this to check to see if any of the values are false: https://stackoverflow.com/questions/53897673/check-if-all-values-in-array-are-true-then-return-a-true-boolean-statement-jav
+      
+      this.avbProject = checker(this.avbProjectsCheck) //boolean check if project exists in the projectsList$
+
+      if (this.avbProject) {
+        this.snackbar.error(`You don't have access to this project! (${this.startProject})`, 10000, 'top');
+        console.log(`Error: (proj=${this.startProject}) User has no access to this project or the project doesn't exist!`)
+      } 
+      
       this.projectForm.get('projectDrop').setValue(this.startProject)
     })
 
