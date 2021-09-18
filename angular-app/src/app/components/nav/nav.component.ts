@@ -70,7 +70,6 @@ ngOnInit() {
 
       //find a way to get this to check if the project exists if not then snackbar and error
       this.avbProjectsCheck = proj.map(x => x.id === this.startProject)
-  
       let checker = (arr: any[]) => arr.every(v => v === false) //I need this to check to see if any of the values are false: https://stackoverflow.com/questions/53897673/check-if-all-values-in-array-are-true-then-return-a-true-boolean-statement-jav
       
       this.avbProject = checker(this.avbProjectsCheck) //boolean check if project exists in the projectsList$
