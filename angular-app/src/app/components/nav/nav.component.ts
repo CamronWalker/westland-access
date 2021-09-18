@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CustomSnackBarService } from 'src/app/services/custom-snack-bar.service';
 
 
 
@@ -44,6 +45,7 @@ export class NavComponent implements OnInit{
     private afs: AngularFirestore,
     private route: ActivatedRoute,
     private router: Router,
+    private snackbar: CustomSnackBarService
     ) {}
 
 ngOnInit() {
@@ -77,8 +79,6 @@ ngOnInit() {
 
   this.projectForm.valueChanges.subscribe(proj => {
     this.projectNumber = proj.projectDrop;
-
-    
 
     this.router.navigate(
       [], {

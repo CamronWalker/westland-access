@@ -21,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 // Project Pages
@@ -40,6 +41,7 @@ import { NavComponent } from './components/nav/nav.component';
 
 import { ScannerComponent } from './components/scanner/scanner.component';
   import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
 
 
 const firebaseConfig = {
@@ -66,7 +68,7 @@ const firebaseConfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule, // Firebase Imports
     NgxQRCodeModule, NgxPrintModule, ZXingScannerModule,
-    BrowserAnimationsModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatSelectModule,
+    BrowserAnimationsModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatSelectModule, MatSnackBarModule,
     FormsModule, ReactiveFormsModule
   ],
   providers: [],

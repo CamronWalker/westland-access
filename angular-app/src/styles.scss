@@ -2,3 +2,32 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+//Snackbar classes colors per https://colorswall.com/palette/3/
+.mat-simple-snackbar {
+    font-size: 1.2em;
+    color: #f7f7f7;
+    .mat-simple-snackbar-action {
+        font-size: 1.2em;
+        color: #f7f7f7;
+    }
+  }
+  
+
+
+  .snackbar-error {
+    background-color: #d9534f;
+  }
+  
+  .snackbar-success {
+    background-color: #5cb85c;
+  }
+  
+  .snackbar-info {
+    background-color: #5bc0de;
+  }
+
+  .snackbar-warning {
+    background-color: #f0ad4e;
+  }
+
