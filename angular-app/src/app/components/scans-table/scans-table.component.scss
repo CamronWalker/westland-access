@@ -6,3 +6,19 @@ table {
   th.mat-sort-header-sorted {
     color: black;
   }
+
+  .is-error {
+    background-color: #d9534f;
+  }
+  
+  .is-success {
+    background: #5cb85c;
+  }
+  
+  .is-info {
+    background-color: #5bc0de;
+  }
+
+  .is-warning {
+    background-color: #f0ad4e;
+  }
