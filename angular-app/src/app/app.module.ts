@@ -44,6 +44,11 @@ import { NavComponent } from './components/nav/nav.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
   import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
+import { ScansTableComponent } from './components/scans-table/scans-table.component';
+  import { MatTableModule } from '@angular/material/table';
+  import { MatSortModule } from '@angular/material/sort';
+
+
 
 
 const firebaseConfig = {
@@ -63,14 +68,16 @@ const firebaseConfig = {
     HomeComponent,
     IdBadgeComponent,
     NavComponent,
-    ScannerComponent
+    ScannerComponent,
+    ScansTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule, // Firebase Imports
     NgxQRCodeModule, NgxPrintModule, ZXingScannerModule,
-    BrowserAnimationsModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatSelectModule, MatSnackBarModule, MatGridListModule, MatInputModule, MatSlideToggleModule,
+    BrowserAnimationsModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatSelectModule, 
+    MatSnackBarModule, MatGridListModule, MatInputModule, MatSlideToggleModule, MatTableModule, MatSortModule, 
     FormsModule, ReactiveFormsModule, 
   ],
   providers: [],

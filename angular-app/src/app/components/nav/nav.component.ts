@@ -50,16 +50,16 @@ export class NavComponent implements OnInit{
     private route: ActivatedRoute,
     private router: Router,
     private snackbar: CustomSnackBarService
-    ) {}
+    ) {
+      this.route.queryParams.subscribe(async params => {
+        this.startProject = params['proj'];
+        this.projectNumber = params['proj'];
+      })
+
+    }
 
 ngOnInit() {
   
-  this.route.queryParams.subscribe(async params => {
-    this.startProject = params['proj'];
-    
-  })
-
-
   this.auth.user$.subscribe(user => {
     this.projectsCollection = this.afs.collection('projects', ref => {
       return ref.where('projectUsers', 'array-contains', user.uid);

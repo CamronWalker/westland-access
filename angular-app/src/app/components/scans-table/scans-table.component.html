@@ -1,0 +1,25 @@
+<table mat-table [dataSource]="dataSource" matSort matSortActive="timeScanned" matSortDirection="desc">
+
+    <ng-container matColumnDef="scanResult">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Result </th>
+        <td mat-cell *matCellDef="let scan"> {{scan.scanResult}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="personName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let scan"> {{scan.personName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="timeScanned">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
+        <td mat-cell *matCellDef="let scan"> {{scan.timeScanned.toDate() | date:'yyyy-MM-dd'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="scanResultDesc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Other Info </th>
+        <td mat-cell *matCellDef="let scan"> {{scan.scanResultDesc}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -100,6 +100,7 @@ export class ScannerComponent implements OnInit {
           this.auth.user$.subscribe(user => {
             this.afs.collection<Scan>(`/projects/${searchProject}/scans`).add({
               personId: searchPerson.toString(),
+              personName: docSnapshot.data().firstName + " " + docSnapshot.data().lastName,
               scanResult: docSnapshot.data().status, //going to have to put this in the result
               scanResultDesc: docSnapshot.data().statusDesc,
               scannerUID: user.uid,
