@@ -12,7 +12,7 @@
 
     <ng-container matColumnDef="timeScanned">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
-        <td mat-cell *matCellDef="let scan"> {{scan.timeScanned.toDate() | date:'yyyy-MM-dd'}} </td>
+        <td mat-cell *matCellDef="let scan"> {{scan.timeScanned.toDate() | date:'yyyy-MM-dd HH:mm:ss'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="scanResultDesc">
@@ -21,5 +21,5 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  <!--TODO add dynamic row color to row based on status... this should work: https://newbedev.com/angular-material-table-apply-dynamically-background-color-to-a-row-angular-2#:~:text=%5Bngstyle%5D%20on%20every%20td-->
 </table>
