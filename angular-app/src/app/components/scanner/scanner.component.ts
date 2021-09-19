@@ -80,19 +80,19 @@ export class ScannerComponent implements OnInit {
           
           switch(docSnapshot.data().status) {
             case 'Allowed': {
-              this.snackbar.success(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} (${searchPerson}) - ${docSnapshot.data().status}`, 4000, 'top');
+              this.snackbar.success(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${searchPerson} ) - ${docSnapshot.data().status}`, 4000, 'top');
               break;
             }
             case 'No Access': {
-              this.snackbar.error(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} (${searchPerson}) - ${docSnapshot.data().status}`, 4000, 'top');
+              this.snackbar.error(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${searchPerson} ) - ${docSnapshot.data().status}`, 4000, 'top');
               break;
             }
             case 'Escort Required': {
-              this.snackbar.warning(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} (${searchPerson}) - ${docSnapshot.data().status}`, 4000, 'top');
+              this.snackbar.warning(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${searchPerson} ) - ${docSnapshot.data().status}`, 4000, 'top');
               break;
             }
             case 'See Description': {
-              this.snackbar.info(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} (${searchPerson}) - ${docSnapshot.data().status}`, 4000, 'top');
+              this.snackbar.info(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${searchPerson} ) - ${docSnapshot.data().status}`, 4000, 'top');
               break;
             }
           }

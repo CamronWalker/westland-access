@@ -37,3 +37,12 @@
   ::ng-deep snack-bar-container.snack-error {
     background: red;
   }
+
+
+  table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
