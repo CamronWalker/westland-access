@@ -51,6 +51,25 @@ export class ScannerComponent implements OnInit {
     } else {
       this.lastScannedString = resultString;
       
+
+      
+        if (resultString.includes('http') && resultString.includes('?')) {
+          const qrCodeParam_proj = this.getUrlParameter('proj','?' + resultString.split('?')[1]);
+          const qrCodeParam_id = this.getUrlParameter('id','?' + resultString.split('?')[1]);
+        
+        //if project !=
+        
+        
+        } else {
+
+          this.scannerForm.setValue({
+            navigateScanner: this.scannerForm.get('navigateScanner').value,
+            showScanner: true,
+            searchField: resultString
+          })
+
+        }
+        this.searchItem()
       // create a case for each type of qr code
         // Link QR Codes
           // if it's a qr code for a different project renavigate
@@ -60,7 +79,7 @@ export class ScannerComponent implements OnInit {
       
       // update accordingly and searchitem
 
-      this.snackbar.info(resultString, 4000, 'top')
+      //this.snackbar.info(resultString, 4000, 'top')
     }
     
   }
