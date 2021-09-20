@@ -37,6 +37,7 @@ export class AuthService {
   async googleSignin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
+    location.reload()
     if (credential.user) return this.updateUserData(credential.user);
   }
 
