@@ -1,4 +1,5 @@
 export interface Person {
+    id: string;
     companyName: string;
     firstName: string;
     lastName: string;
@@ -7,5 +8,6 @@ export interface Person {
     status: 'Allowed' | 'No Access' | 'Escort Required' | 'See Description';
     statusDesc?: string;
     tradeName: string;
+    imageURL?: string;
 
   }

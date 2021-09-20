@@ -1,0 +1,521 @@
+{
+  "__collections__": {
+    "projects": {
+      "S590": {
+        "projectUsers": [
+          "YZdBp1C7D0ev0RzGVAQkgF28R512"
+        ],
+        "projectName": "St. George Temple Major Renovation",
+        "projectImageURL": "",
+        "__collections__": {
+          "people": {
+            "2": {
+              "status": "Allowed",
+              "lastScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1631944800,
+                  "_nanoseconds": 0
+                }
+              },
+              "companyName": "Westland Construction",
+              "firstName": "Camron",
+              "tradeName": "General Contractor",
+              "statusDesc": "Allowed with unbadged guests.",
+              "lastName": "Walker",
+              "imageLocation": "/S590/2.jpg",
+              "__collections__": {}
+            }
+          },
+          "scans": {
+            "59duXnQ5dUiZuPidyNTz": {
+              "scannerName": "Camron Walker",
+              "personName": "Camron Walker",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scanResult": "Allowed",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632016595,
+                  "_nanoseconds": 144000000
+                }
+              },
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personId": "2",
+              "__collections__": {}
+            },
+            "6pQUb8DjtXDcV4FCvFMG": {
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632024436,
+                  "_nanoseconds": 958000000
+                }
+              },
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personId": "2",
+              "scannerName": "Camron Walker",
+              "personName": "Camron Walker",
+              "scanResult": "Allowed",
+              "__collections__": {}
+            },
+            "8COxHtVNw0VYCUr5MjcI": {
+              "personName": "Camron Walker",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personId": "2",
+              "scannerName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632016593,
+                  "_nanoseconds": 115000000
+                }
+              },
+              "scanResult": "Allowed",
+              "__collections__": {}
+            },
+            "989TsJowEex9CiSxJmAs": {
+              "personId": "2",
+              "personName": "Camron Walker",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerName": "Camron Walker",
+              "scanResult": "No Access",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632016530,
+                  "_nanoseconds": 213000000
+                }
+              },
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "__collections__": {}
+            },
+            "A18F8yvsW7zV6Y4gop4b": {
+              "personId": "2",
+              "personName": "Camron Walker",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerName": "Camron Walker",
+              "scanResult": "Allowed",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632086123,
+                  "_nanoseconds": 730000000
+                }
+              },
+              "__collections__": {}
+            },
+            "EsENuUeeVvJC3dMuDW7u": {
+              "personName": "Camron Walker",
+              "personId": "2",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020287,
+                  "_nanoseconds": 831000000
+                }
+              },
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResult": "Allowed",
+              "__collections__": {}
+            },
+            "FPMbYEUMvXzIGFCc3N2U": {
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020285,
+                  "_nanoseconds": 985000000
+                }
+              },
+              "scanResult": "Allowed",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personId": "2",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personName": "Camron Walker",
+              "scannerName": "Camron Walker",
+              "__collections__": {}
+            },
+            "LYywTMguR8ASilugoxbG": {
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020318,
+                  "_nanoseconds": 695000000
+                }
+              },
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personName": "Camron Walker",
+              "scanResult": "Allowed",
+              "personId": "2",
+              "scannerName": "Camron Walker",
+              "__collections__": {}
+            },
+            "M6zmdbraHFhdD6zaMxZd": {
+              "scanResult": "Allowed",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020281,
+                  "_nanoseconds": 853000000
+                }
+              },
+              "personId": "2",
+              "scannerName": "Camron Walker",
+              "personName": "Camron Walker",
+              "__collections__": {}
+            },
+            "QBQZD114km9oxqPG8AVD": {
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632016534,
+                  "_nanoseconds": 630000000
+                }
+              },
+              "personId": "2",
+              "scannerName": "Camron Walker",
+              "scanResult": "No Access",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "__collections__": {}
+            },
+            "UUrvW2YORsTqsnzJZMX8": {
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResult": "Allowed",
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632024436,
+                  "_nanoseconds": 809000000
+                }
+              },
+              "personId": "2",
+              "scannerName": "Camron Walker",
+              "__collections__": {}
+            },
+            "ViAij1cMsmxUBLIo1crf": {
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020282,
+                  "_nanoseconds": 453000000
+                }
+              },
+              "personId": "2",
+              "personName": "Camron Walker",
+              "scannerName": "Camron Walker",
+              "scanResult": "Allowed",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "__collections__": {}
+            },
+            "Vp4kI2ziaYapEL4CY2KR": {
+              "scanResult": "Allowed",
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632082978,
+                  "_nanoseconds": 881000000
+                }
+              },
+              "personId": "2",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scannerName": "Camron Walker",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "__collections__": {}
+            },
+            "WbswMcmsvlAEMBNbURFP": {
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scannerName": "Camron Walker",
+              "scanResult": "Allowed",
+              "personId": "2",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020285,
+                  "_nanoseconds": 97000000
+                }
+              },
+              "__collections__": {}
+            },
+            "Y5Q5GXuMcykfA4y5bNba": {
+              "scannerName": "Camron Walker",
+              "personName": "Camron Walker",
+              "scanResult": "Allowed",
+              "personId": "2",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632083386,
+                  "_nanoseconds": 349000000
+                }
+              },
+              "__collections__": {}
+            },
+            "ab3SbSQ3gPLGROsO3erz": {
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632085301,
+                  "_nanoseconds": 1000000
+                }
+              },
+              "scannerName": "Camron Walker",
+              "personId": "2",
+              "scanResult": "No Access",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personName": "Camron Walker",
+              "__collections__": {}
+            },
+            "bbkMK80om4fgM0alepi8": {
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020316,
+                  "_nanoseconds": 964000000
+                }
+              },
+              "scannerName": "Camron Walker",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personId": "2",
+              "scanResult": "Allowed",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "__collections__": {}
+            },
+            "cfBk9YtRhsSKbFLQ788L": {
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020286,
+                  "_nanoseconds": 667000000
+                }
+              },
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personName": "Camron Walker",
+              "scanResult": "Allowed",
+              "scannerName": "Camron Walker",
+              "personId": "2",
+              "__collections__": {}
+            },
+            "ctQIxPqZSoW5Txdehi8R": {
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020289,
+                  "_nanoseconds": 16000000
+                }
+              },
+              "scanResult": "Allowed",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scannerName": "Camron Walker",
+              "personId": "2",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "__collections__": {}
+            },
+            "hHNQd6TyPr7Lm9OzXbnm": {
+              "personId": "2",
+              "scannerName": "Camron Walker",
+              "scanResult": "Allowed",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632024436,
+                  "_nanoseconds": 992000000
+                }
+              },
+              "__collections__": {}
+            },
+            "i1i69a3IaBFrEF5IPbkm": {
+              "scanResult": "Allowed",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personId": "2",
+              "scannerName": "Camron Walker",
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632083954,
+                  "_nanoseconds": 469000000
+                }
+              },
+              "__collections__": {}
+            },
+            "jGD4QzfOhGhAyxEdIw3h": {
+              "scannerName": "Camron Walker",
+              "scanResult": "Allowed",
+              "personId": "2",
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632024276,
+                  "_nanoseconds": 691000000
+                }
+              },
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "__collections__": {}
+            },
+            "jaREwC3yDtzghOjLdeFD": {
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632085377,
+                  "_nanoseconds": 78000000
+                }
+              },
+              "personName": "Camron Walker",
+              "scannerName": "Camron Walker",
+              "scanResult": "Escort Required",
+              "personId": "2",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "__collections__": {}
+            },
+            "nJTRzn9lWWYWjEMexC5w": {
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personId": "2",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020282,
+                  "_nanoseconds": 991000000
+                }
+              },
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personName": "Camron Walker",
+              "scannerName": "Camron Walker",
+              "scanResult": "Allowed",
+              "__collections__": {}
+            },
+            "pI4XE9y7CExIoymV144I": {
+              "scannerName": "Camron Walker",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personId": "2",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632085396,
+                  "_nanoseconds": 379000000
+                }
+              },
+              "personName": "Camron Walker",
+              "scanResult": "See Description",
+              "__collections__": {}
+            },
+            "quCGZlhn3HTvswzsURgt": {
+              "scanResult": "Allowed",
+              "scannerName": "Camron Walker",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personName": "Camron Walker",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020288,
+                  "_nanoseconds": 427000000
+                }
+              },
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personId": "2",
+              "__collections__": {}
+            },
+            "rSUpnVt3WqPTepSej0bc": {
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personName": "Camron Walker",
+              "scanResult": "Allowed",
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020319,
+                  "_nanoseconds": 871000000
+                }
+              },
+              "personId": "2",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "scannerName": "Camron Walker",
+              "__collections__": {}
+            },
+            "xfji1WXROtRDbUI4Elqw": {
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632016596,
+                  "_nanoseconds": 216000000
+                }
+              },
+              "scannerName": "Camron Walker",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personId": "2",
+              "scanResult": "Allowed",
+              "personName": "Camron Walker",
+              "__collections__": {}
+            },
+            "yGdEReCmK9nELOp4u3SZ": {
+              "timeScanned": {
+                "__datatype__": "timestamp",
+                "value": {
+                  "_seconds": 1632020287,
+                  "_nanoseconds": 237000000
+                }
+              },
+              "scanResultDesc": "Allowed with unbadged guests.",
+              "personName": "Camron Walker",
+              "scannerName": "Camron Walker",
+              "scannerUID": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+              "personId": "2",
+              "scanResult": "Allowed",
+              "__collections__": {}
+            }
+          }
+        }
+      },
+      "W12345": {
+        "projectImageURL": "",
+        "projectUsers": [
+          "YZdBp1C7D0ev0RzGVAQkgF28R512"
+        ],
+        "projectName": "Test Project",
+        "__collections__": {}
+      }
+    },
+    "users": {
+      "YZdBp1C7D0ev0RzGVAQkgF28R512": {
+        "userProjects": [
+          "S590",
+          "W12345"
+        ],
+        "uid": "YZdBp1C7D0ev0RzGVAQkgF28R512",
+        "email": "camronwalker@gmail.com",
+        "displayName": "Camron Walker",
+        "photoURL": "https://lh3.googleusercontent.com/a-/AOh14Gi_xI5HzvhDa4U-o-A1zwW7Rwu38UBEiICt0UPATH4=s96-c",
+        "__collections__": {}
+      }
+    }
+  }
+}

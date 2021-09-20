@@ -1,0 +1,29 @@
+{
+  "0": {
+    "companyName": "Westland Construction",
+    "tradeName": "General Contractor",
+    "statusDesc": "Boss Man",
+    "firstName": "Todd",
+    "imageLocation": "/S590/0.jpg",
+    "lastName": "Houghton",
+    "status": "Allowed",
+    "__collections__": {}
+  },
+  "2": {
+    "lastName": "Walker",
+    "statusDesc": "Allowed with unbadged guests.",
+    "lastScanned": {
+      "__datatype__": "timestamp",
+      "value": {
+        "_seconds": 1631944800,
+        "_nanoseconds": 0
+      }
+    },
+    "companyName": "Westland Construction",
+    "tradeName": "General Contractor",
+    "status": "Allowed",
+    "imageLocation": "/S590/2.jpg",
+    "firstName": "Camron",
+    "__collections__": {}
+  }
+}

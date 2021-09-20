@@ -30,13 +30,14 @@ export class NavComponent implements OnInit{
   activatedRoute: ActivatedRoute;
   avbProject: boolean;
   avbProjectsCheck: boolean[];
-
+  personID: any;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
+
   
   
   
@@ -54,6 +55,7 @@ export class NavComponent implements OnInit{
       this.route.queryParams.subscribe(async params => { //need the query param select starting project
         this.startProject = params['proj'];
         this.projectNumber = params['proj'];
+        this.personID = params['id'];
       })
 
     }

@@ -29,6 +29,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 // Project Pages
 import { HomeComponent } from './pages/home/home.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { ProjectPersonComponent } from './pages/project-person/project-person.component';
+
   //MatCardModule
 
 // Project Components
@@ -47,6 +49,9 @@ import { ScannerComponent } from './components/scanner/scanner.component';
 import { ScansTableComponent } from './components/scans-table/scans-table.component';
   import { MatTableModule } from '@angular/material/table';
   import { MatSortModule } from '@angular/material/sort';
+
+import { ProjectPeopleTableComponent } from './components/project-people-table/project-people-table.component';
+
 
 
 
@@ -69,7 +74,9 @@ const firebaseConfig = {
     IdBadgeComponent,
     NavComponent,
     ScannerComponent,
-    ScansTableComponent
+    ScansTableComponent,
+    ProjectPeopleTableComponent,
+    ProjectPersonComponent
   ],
   imports: [
     BrowserModule,
