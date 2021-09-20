@@ -1,1 +1,37 @@
-<p>scanner works!</p>
+<mat-grid-list [cols]='this.bp.gridColCount' rowHeight="100px" gutterSize="16px">
+
+    <div *ngIf="scannerForm.controls['showScanner'].value === true" class="mat-grid-tile-custom"  >
+        <mat-grid-tile rowspan='4' class="mat-elevation-z2">
+            <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+        </mat-grid-tile>
+    </div>
+
+
+    <mat-grid-tile rowspan='2' class="mat-elevation-z2">
+        <div class="mat-grid-tile-custom">
+            <form [formGroup]="scannerForm">
+                
+                <mat-slide-toggle formControlName="showScanner" style="padding-bottom: 10px;" color="primary">{{scannerForm.controls['showScanner'].value ? 'Hide Scanner' :  'Show Scanner'}}</mat-slide-toggle>
+                <mat-slide-toggle formControlName="navigateScanner" style="padding-bottom: 10px; padding-left: 10px;" color="primary">{{scannerForm.controls['navigateScanner'].value ? 'Open Page' :  'Log Entry'}}</mat-slide-toggle>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Item Number</mat-label>
+                    <input matInput type="text" autofocus (keyup.enter)="searchItem()" formControlName="searchField"> <!--TODO: Create auto focus directive. https://jhapriti09.medium.com/autofocus-directive-that-works-in-angular-10-db352ef70399--> 
+                </mat-form-field>
+                
+                <!-- <button mat-raised-button color="accent" (click)="searchItem()">Search</button> -->
+            </form>
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile rowspan='6' class="table-grid-tile mat-elevation-z2">
+        <div class="scans-table-container">
+            <app-scans-table></app-scans-table>
+        </div>
+    </mat-grid-tile>
+
+    <!-- <mat-grid-tile class="mat-elevation-z2">
+        for some of something use this to make sure the new is always on top: https://stackoverflow.com/questions/8073673/how-can-i-add-new-array-elements-at-the-beginning-of-an-array-in-javascript
+    </mat-grid-tile> -->
+
+</mat-grid-list>

@@ -5,14 +5,14 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar routerLink="/">WPA</mat-toolbar>
+    <mat-toolbar routerLink="/" queryParamsHandling="merge">Westland Access</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/scanner" (click)="drawer.toggle()">Scanner</a>
-      <a mat-list-item routerLink="/project" (click)="drawer.toggle()">Project</a>
+      <a mat-list-item routerLink="/scanner" queryParamsHandling="merge" (click)="drawer.toggle()">Scanner</a>
+      <a mat-list-item routerLink="/project" queryParamsHandling="merge" (click)="drawer.toggle()">Project</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="mat-elevation-z6">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -21,7 +21,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span routerLink="/" >WPA</span>
+      <span routerLink="/" queryParamsHandling="merge">WPA</span>
 
 
 
@@ -47,10 +47,10 @@
 
       <span class="nav-spacer"></span>
       <span [ngClass]="{hidden: (isHandset$ | async)}">
-        <a routerLink="/scanner">Scanner</a>
-        <a routerLink="/project">Project</a>
+        <a routerLink="/scanner" queryParamsHandling="merge">Scanner</a>
+        <a routerLink="/project" queryParamsHandling="merge">Project</a>
       </span>
-      <a *ngIf="auth.user$ | async as user; else login"><mat-icon routerLink="/user">manage_accounts</mat-icon></a>
+      <a *ngIf="auth.user$ | async as user; else login"><mat-icon routerLink="/user" queryParamsHandling="merge">manage_accounts</mat-icon></a>
       <ng-template #login>
         <button mat-raised-button (click)="auth.googleSignin()" color="accent">Login With Google</button>
       </ng-template>

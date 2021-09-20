@@ -21,7 +21,10 @@ import { MatListModule } from '@angular/material/list';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 // Project Pages
 import { HomeComponent } from './pages/home/home.component';
@@ -41,6 +44,12 @@ import { NavComponent } from './components/nav/nav.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
   import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
+import { ScansTableComponent } from './components/scans-table/scans-table.component';
+  import { MatTableModule } from '@angular/material/table';
+  import { MatSortModule } from '@angular/material/sort';
+
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRLq3j-Yy6XhohnCb7xTSZUCJNluwrfaU",
@@ -59,15 +68,17 @@ const firebaseConfig = {
     HomeComponent,
     IdBadgeComponent,
     NavComponent,
-    ScannerComponent
+    ScannerComponent,
+    ScansTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireStorageModule, AngularFireAuthModule, // Firebase Imports
     NgxQRCodeModule, NgxPrintModule, ZXingScannerModule,
-    BrowserAnimationsModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatSelectModule,
-    FormsModule, ReactiveFormsModule
+    BrowserAnimationsModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatSelectModule, 
+    MatSnackBarModule, MatGridListModule, MatInputModule, MatSlideToggleModule, MatTableModule, MatSortModule, 
+    FormsModule, ReactiveFormsModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

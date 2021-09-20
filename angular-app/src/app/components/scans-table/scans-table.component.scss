@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .is-error {
+    background: #d9534f;
+  }
+  
+  .is-success {
+    background: #5cb85c;
+  }
+  
+  .is-info {
+    background: #5bc0de;
+  }
+
+  .is-warning {
+    background: #f0ad4e;
+  }
