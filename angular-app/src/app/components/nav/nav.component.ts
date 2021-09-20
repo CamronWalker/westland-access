@@ -44,7 +44,7 @@ export class NavComponent implements OnInit{
 
 ngOnInit() {
   
-  this.route.queryParams.subscribe(async params => {
+  this.route.queryParams.subscribe(async params => { //need the query param select starting project
     this.startProject = params['project'];
     
   })
@@ -56,9 +56,9 @@ ngOnInit() {
     });
 
     this.projectsCollection.valueChanges({ idField: 'id' }).subscribe(proj => {
-      this.projectsList$ = proj;
+      this.projectsList$ = proj; //List for the dropdown
       //console.log(this.projectsList$)
-      this.projectForm.get('projectDrop').setValue(this.startProject)
+      this.projectForm.get('projectDrop').setValue(this.startProject) //dropdown to startProject
     })
 
 
