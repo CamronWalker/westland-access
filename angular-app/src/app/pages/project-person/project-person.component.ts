@@ -29,19 +29,23 @@ export class ProjectPersonComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.afs.doc<Person>(`projects/${this.paramProjectNumber}/people/${this.paramPersonId}`).valueChanges({ idField: 'id'}).subscribe(psub => {
-      if (psub.imageURL) { //get imageURL from firebase doc
-        this.badgeImageURL = psub.imageURL
-      } else { //get dl URL from afStorage
-        console.log('getting download URL for user: ' + psub.id )
-        this.getURL(psub.imageLocation).then((urlValue) => {
-          this.badgeImageURL = urlValue
-          this.afs.doc<Person>(`projects/${this.paramProjectNumber}/people/${this.paramPersonId}`).update({ //update it so you don't have to call it storage all the time
-            imageURL: this.badgeImageURL
+    if (this.paramPersonId && this.paramProjectNumber) {
+      this.afs.doc<Person>(`projects/${this.paramProjectNumber}/people/${this.paramPersonId}`).valueChanges({ idField: 'id'}).subscribe(psub => {
+        if (psub.imageURL) { //get imageURL from firebase doc
+          this.badgeImageURL = psub.imageURL
+        } else { //get dl URL from afStorage
+          console.log('getting download URL for user: ' + psub.id )
+          this.getURL(psub.imageLocation).then((urlValue) => {
+            this.badgeImageURL = urlValue
+            this.afs.doc<Person>(`projects/${this.paramProjectNumber}/people/${this.paramPersonId}`).update({ //update it so you don't have to call it storage all the time
+              imageURL: this.badgeImageURL
+            })
           })
-        })
-      }
-    })
+        }
+      })
+
+    }
+
   }
 
   async getURL(filePath: string) {
