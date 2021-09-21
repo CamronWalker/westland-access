@@ -95,9 +95,9 @@ export class ProjectPersonComponent implements OnInit {
       statusDesc: this.personForm.get('statusDesc').value,
 
     }).then(() => {
-      this.snackbar.success(`Updated ${this.personSub.id}`, 4000, 'bottom')
+      this.snackbar.success(`Updated Project ID ${this.paramPersonId} - ${this.personForm.get('firstName').value} ${this.personForm.get('lastName').value} Successfully!`, 7000, 'bottom')
     }).catch(err => {
-      this.snackbar.error(`ERROR: ${this.personSub.id} was not updated!`, 4000, 'bottom')
+      this.snackbar.error(`ERROR: Project ID ${this.personSub.id} was not updated!`, 7000, 'bottom')
     })
     
   }

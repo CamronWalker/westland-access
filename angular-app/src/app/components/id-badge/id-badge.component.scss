@@ -2,17 +2,18 @@
     width: 300px;
     height: 480px;
     border: solid black 1px;
-    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(../../../assets/temple.jpg) no-repeat center;
+    background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url(../../../assets/temple.jpg) no-repeat center;
     background-size: cover;
     border-radius: 20px;
     -webkit-print-color-adjust: exact;
-    margin: -8px;
+    margin: -6px;
     
 }
 
 .badge-content-container {
-    margin: 8px;
-    border: solid red 1px;
+    padding-right: 4px;
+    margin: 6px;
+
 }
 
 .title {
@@ -26,14 +27,14 @@
     text-align: center;
     width: 70px;
     height: 15px;
-    border: solid black 1px;
+    //border: solid black 1px;
     border-radius: 7.5px;
     margin-top: 20px;
     margin-left: 115px;
 }
 
 .qr-code-div {
-    padding-top: 75px;
+    padding-top: 40px;
     width: 100%;
 }
 
@@ -43,6 +44,7 @@
     font-size: larger;
     margin: 10px;
     text-align: center;
+    white-space: nowrap;
 }
 
 .id-left-column {
@@ -50,12 +52,13 @@
 }
 
 .id-right-column {
+    margin-left: 10px;
     flex: 45%;
 }
 
 .id-right-column p {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: xxx-large;
+    font-size: xx-large;
     color: red;
     text-align: center;
     font-weight: 600;
