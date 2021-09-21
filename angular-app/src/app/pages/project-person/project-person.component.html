@@ -1,4 +1,80 @@
-Project Number: {{this.paramProjectNumber}}
+<!-- Project Number: {{this.paramProjectNumber}}
 Project Person: {{this.paramPersonId}}
 
-<img [src]="badgeImageURL">
+<img [src]="badgeImageURL"> -->
+
+<div *ngIf="personSub"><!--*ngIf needed to prevent cannot get of undefined error wait for personSub essentially-->
+    <mat-grid-list [cols]="this.bp.gridColCount > 1 ? 2 : 1" rowHeight="840px" gutterSize="16px">
+        <mat-grid-tile class="form-tile mat-elevation-z2">
+            <mat-grid-tile-header>
+                {{personSub.id}} - {{personSub.firstName}} {{personSub.lastName}}
+            </mat-grid-tile-header>
+            <div class="form-div">
+                <form [formGroup]="personForm">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Frist Name</mat-label>
+                        <input matInput type="text" formControlName="firstName">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text" formControlName="lastName">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Company Name</mat-label>
+                        <input matInput type="text" formControlName="companyName">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Trade Description</mat-label>
+                        <input matInput type="text" formControlName="tradeName">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Status</mat-label>
+                        <mat-select formControlName="status">
+                            <mat-option value="Allowed">Allowed</mat-option>
+                            <mat-option value="No Access">No Access</mat-option>
+                            <mat-option value="Escort Required">Escort Required</mat-option>
+                            <mat-option value="See Description">See Description</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Status Description</mat-label>
+                        <input matInput type="text" formControlName="statusDesc">
+                    </mat-form-field>
+                    <br>
+                    <button mat-raised-button color="primary" (click)="updatePerson()">Update</button>
+                </form>
+            </div>
+        </mat-grid-tile>
+    
+        <mat-grid-tile  class="id-card-tile mat-elevation-z2" >
+            <mat-grid-tile-header>
+                ID Badge
+            </mat-grid-tile-header>
+            <div id="print-badge">
+                <app-id-badge class="app-id-badge"
+                    [name]="personSub.firstName + ' ' + personSub.lastName"
+                    [company]="personSub.companyName"
+                    [trade]="personSub.tradeName"
+                    [idNumber]="personSub.id"
+                    [profilePic]="personSub.imageURL"
+                    [codeValue]="'https://westland-access.web.app/person?proj=' + paramPersonId + '&id=' + personSub.id"
+                    >
+                </app-id-badge>
+            </div>
+            <br>
+            <div class="id-card-buttons">
+                <button mat-raised-button color="primary"
+                    [useExistingCss]="true"
+                        printSectionId="print-badge"
+                        ngxPrint>Print Badge</button>
+            </div>
+        </mat-grid-tile>
+        
+    </mat-grid-list>
+</div>
+

@@ -8,10 +8,11 @@ import { ProjectPersonComponent } from './pages/project-person/project-person.co
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 const routes: Routes = [ 
-  {path: '', component: ScansTableComponent},
+  {path: '', component: HomeComponent},
   {path: 'user', component: UserProfileComponent},
   {path: 'scanner', component: ScannerComponent},
-  {path: 'project', component: ProjectPersonComponent}
+  {path: 'project', component: ProjectPeopleTableComponent},
+  {path: 'people', component: ProjectPersonComponent}
 ];
 
 @NgModule({
