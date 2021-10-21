@@ -10,7 +10,7 @@
                     <mat-icon class="material-icons-outlined" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">qr_code_scanner</mat-icon>
                     <span routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Scan</span> <!-- IDK why you need the routerLink on this span but not the others, but without it the active route highlight doesn't cover the text -->
                 </button>
-                <button mat-flat-button color="primary" routerLink="/people" routerLinkActive="active-link">
+                <button mat-flat-button color="primary" routerLink="/p" routerLinkActive="active-link">
                     <mat-icon class="material-icons-outlined">engineering</mat-icon>
                     <span>People</span>
                 </button>
@@ -24,9 +24,8 @@
 
             <span class="fill-space"></span>
             <div>
-                <a mat-button routerLink="/scanner" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">search</mat-icon> Search</a>
-                <a mat-button routerLink="/items" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">category</mat-icon> Items</a>
-                <a mat-button routerLink="/g" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">inventory_2</mat-icon> Groups</a>
+                <a mat-button routerLink="/" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">qr_code_scanner</mat-icon> Scan</a>
+                <a mat-button routerLink="/p" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">engineering</mat-icon> People</a>
                 <a mat-button routerLink="/my-settings" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">manage_accounts</mat-icon> Settings</a>
             </div>
         </mat-toolbar>

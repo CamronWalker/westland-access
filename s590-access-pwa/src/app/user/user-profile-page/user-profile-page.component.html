@@ -1,0 +1,82 @@
+<div *ngIf="auth.user$ | async as user; else loading"> 
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid">
+        
+        <div fxFlex="50" fxFlex.gt-sm="33" fxFlex.gt-lg="15">
+            <mat-card id="user-data-card" class="mat-elevation-z6">
+                    
+                <mat-card-header>
+                    <mat-card-title>{{user.displayName}}</mat-card-title>
+                    <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+                    <img mat-card-avatar [src]="user.photoURL">
+                </mat-card-header>        
+            
+
+                <!-- Other Info If Needed -->
+
+                
+                <hr>
+                <mat-card-actions>
+                    <button mat-raised-button (click)="auth.logout()" color="accent">Sign Out</button>
+                    <span style="padding-left: 8px;"></span>
+                    <a href="https://myaccount.google.com/">
+                        <button mat-raised-button color="primary">Edit on Google.com</button>
+                    </a>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+        <div fxFlex="50" fxFlex.gt-lg="35">
+            <mat-card id="custom-profile-settings-card" class="mat-elevation-z6">
+                <mat-card-header>
+                    <mat-card-title>
+                        Custom User Settings
+                    </mat-card-title>
+                </mat-card-header>
+    
+                <!-- Some FORM -->
+                <form [formGroup]="userProfileForm" appFireFormAutosave path="users/{{user.uid}}" (stateChange)="changeHandler($event)" >
+
+                    <mat-form-field>
+                        <mat-label>Custom Data</mat-label>
+                        <input matInput appearance="fill" formControlName="customString">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-select formControlName="defaultView" appearance="fill" placeholder="View Mode">
+                            <mat-option value="default">System Default</mat-option>
+                            <mat-option value="light">Light</mat-option>
+                            <mat-option value="dark">Dark</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+                    <button mat-raised-button color="primary" ngSubmit>Save</button>
+                
+                </form>
+                <br>
+                <mat-card-footer>
+                    <mat-progress-bar [mode]="state == 'modified' ? 'indeterminate' : 'determinate'" value="100" [ngClass]="'form-status-' + state"></mat-progress-bar>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<ng-template #loading>
+    <mat-spinner id="main-loading-spinner"></mat-spinner>
+</ng-template>

@@ -14,11 +14,23 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table'
+import { MatDialogModule } from '@angular/material/dialog';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FireFormAutosaveDirective } from './fire-form-autosave.directive';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 const components = [
   MainNavComponent,
+  FireFormAutosaveDirective
 ];
 
 const modules = [
@@ -30,18 +42,30 @@ const modules = [
   MatSidenavModule,
   MatListModule,
   MatMenuModule,
+  MatIconModule,
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
   RouterModule,
+  FlexLayoutModule,
+  MatProgressSpinnerModule,
+  ReactiveFormsModule,
+  MatSelectModule,
+  MatProgressBarModule,
   HttpClientModule,
+  MatTableModule,
+  MatSortModule,
+  MatDialogModule,
+  MatTooltipModule
+
   
 ];
 
 @NgModule({
   declarations: [
     ...components,
+    FireFormAutosaveDirective,
   ],
   imports: [
     ...modules,
