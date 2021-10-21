@@ -20,11 +20,11 @@
                 </button>
         </mat-toolbar>
         <mat-toolbar color="primary" *ngIf="bp.currentScreenSize != 'XSmall'" class="mat-elevation-z14 top-toolbar">
-            <span class="logo" routerLink="/">Asset Protal</span>
+            <span class="logo" routerLink="/">St. George Temple Access</span>
 
             <span class="fill-space"></span>
             <div>
-                <a mat-button routerLink="/" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">qr_code_scanner</mat-icon> Scan</a>
+                <a mat-button routerLink="/" class="aligned-with-icon" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"><mat-icon class="material-icons-outlined" >qr_code_scanner</mat-icon> Scan</a>
                 <a mat-button routerLink="/p" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">engineering</mat-icon> People</a>
                 <a mat-button routerLink="/my-settings" class="aligned-with-icon" routerLinkActive="active-link"><mat-icon class="material-icons-outlined">manage_accounts</mat-icon> Settings</a>
             </div>
@@ -38,15 +38,20 @@
                 menu</mat-icon>
             
             </button> -->
+            <button mat-flat-button color="primary" routerLink="/">
+                <mat-icon class="material-icons-outlined" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">qr_code_scanner</mat-icon>
+                <span routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Scan</span> <!-- IDK why you need the routerLink on this span but not the others, but without it the active route highlight doesn't cover the text -->
+            </button>
 
             <span style="flex:auto"></span>
             <button mat-raised-button color="accent" (click)="auth.login()"><mat-icon svgIcon="google_G"></mat-icon> Sign In With Google</button>
         </mat-toolbar>
         <mat-toolbar color="primary" *ngIf="bp.currentScreenSize != 'XSmall'" class="mat-elevation-z14 top-toolbar">
-            <span class="logo" routerLink="/">Asset Protal</span>
+            <span class="logo" routerLink="/">St. George Temple Access</span>
 
             <span class="fill-space"></span>
             <div>
+                <a mat-button routerLink="/" class="aligned-with-icon" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"><mat-icon class="material-icons-outlined" >qr_code_scanner</mat-icon> Scan</a>
                 <button mat-raised-button color="accent" (click)="auth.login()"><mat-icon svgIcon="google_G"></mat-icon> Sign In With Google</button>
             </div>
         </mat-toolbar>
