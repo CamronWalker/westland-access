@@ -23,7 +23,7 @@ export class PeopleTablePageComponent implements OnInit {
 
   ngOnInit(): void {
     const peopleRef = collection(this.firestore, 'projects/S590/people')
-    const peopleColQuery = query(peopleRef, limit(50))
+    const peopleColQuery = query(peopleRef, orderBy('badgeNum', 'asc'), limit(50))
 
     collectionData(peopleColQuery, { idField: 'id' }).subscribe(scans => {
       this.peopleData = new MatTableDataSource(scans)
