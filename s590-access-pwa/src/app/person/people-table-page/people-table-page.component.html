@@ -1,1 +1,47 @@
-<p>people-table-page works!</p>
+<div class="people-table-container mat-elevation-z6">
+
+    <table mat-table [dataSource]="peopleData" matSort matSortActive="id" matSortDirection="asc" class="mat-elevation-z6">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let person"> {{person.id}} </td> 
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> First </th>
+            <td mat-cell *matCellDef="let person"> {{person.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Last </th>
+            <td mat-cell *matCellDef="let person"> {{person.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="companyName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
+            <td mat-cell *matCellDef="let person"> {{person.companyName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let person"> {{person.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="trade">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Trade </th>
+            <td mat-cell *matCellDef="let person"> {{person.trade}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let person">
+                <button mat-icon-button routerLink="/p/S590/{{person.id}}">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; let people"></tr>
+
+    </table>
+</div>
