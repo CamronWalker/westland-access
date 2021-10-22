@@ -12,6 +12,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ScannerComponent } from './scanner/scanner.component';
 import { ScansTableComponent } from './scanner/scans-table/scans-table.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -29,7 +30,13 @@ import { ScansTableComponent } from './scanner/scans-table/scans-table.component
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
