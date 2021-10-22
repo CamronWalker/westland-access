@@ -15,7 +15,7 @@
 
             <mat-form-field id="search-input">
                 <mat-label>Search Badge Number</mat-label>
-                <input matInput appearance="fill" autofocus formControlName="searchField" (keyup.enter)="searchBadge()">
+                <input matInput appearance="fill" autofocus formControlName="searchField" (keydown.enter)="searchBadge()">
             </mat-form-field>
         </form>
     </div>
