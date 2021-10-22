@@ -1,4 +1,13 @@
-<div class="people-table-container mat-elevation-z6">
+<div fxLayout="column" class="flex-container" fxLayoutGap="15px" fxFill>
+    <div fxFlex="15" fxFlex.gt-sm="10" class="actions-card-container">
+        <div class="actions-card mat-elevation-z6 dark-card-background">
+            <div class="actions-card-content">
+                /items/~GroupID~GroupID2~GroupID3
+            </div>
+        </div>
+    </div>
+
+<div fxFlex="85" fxFlex.gt-sm="90" class="people-table-container mat-elevation-z6">
 
     <table mat-table [dataSource]="peopleData" matSort matSortActive="id" matSortDirection="asc" class="mat-elevation-z6">
         <ng-container matColumnDef="id">
@@ -40,8 +49,10 @@
             </td>
           </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns; let people"></tr>
 
     </table>
+</div>
+
 </div>
