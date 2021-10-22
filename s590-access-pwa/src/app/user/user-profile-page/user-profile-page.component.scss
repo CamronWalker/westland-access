@@ -1,0 +1,22 @@
+// #user-data-card{
+//     margin: 15px;
+// }
+
+#user-data-card {
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 22px;
+}
+mat-card-actions {
+    padding-left: 8px;
+    padding-bottom: 50px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+#custom-profile-settings-card {
+    border-radius: 10px;
+    overflow: hidden;
+}
