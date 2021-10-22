@@ -11,13 +11,15 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { ScannerComponent } from './scanner/scanner.component';
+import { ScansTableComponent } from './scanner/scans-table/scans-table.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScannerComponent
+    ScannerComponent,
+    ScansTableComponent
   ],
   imports: [
     BrowserModule,

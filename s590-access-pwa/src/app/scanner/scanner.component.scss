@@ -21,3 +21,9 @@ mat-form-field {
     object-fit: contain;
     margin-bottom: -4px; //required to get rid of a weird line under the video
   }
+
+  .scans-table-container {
+      border-radius: 10px;
+      overflow: hidden;
+      overflow-y: scroll;
+  }
