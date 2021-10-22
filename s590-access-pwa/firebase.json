@@ -1,1 +1,17 @@
-{}
+{
+  "hosting": {
+    "target": "S590",
+    "public": "dist/s590-access-pwa",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

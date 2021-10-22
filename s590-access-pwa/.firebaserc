@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "westland-access"
+  },
+  "targets": {
+    "westland-access": {
+      "hosting": {
+        "S590": [
+          "westland-access-s590"
+        ]
+      }
+    }
+  }
+}
