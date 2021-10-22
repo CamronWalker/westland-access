@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { addDoc, collection, collectionData, doc, docData, Firestore, getDoc, setDoc } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { take } from 'rxjs/operators';
 import { AuthService } from '../shared/services/auth.service';
+import { BreakpointService } from '../shared/services/breakpoint.service';
 import { CustomSnackBarService } from '../shared/services/custom-snackbar.service';
 
 @Component({
@@ -13,20 +15,38 @@ export class ScannerComponent implements OnInit {
 
   scannerForm!: FormGroup
   lastScan?: string;
+  scannerTableStatus: 'loading' | 'ready' = 'loading' //using this state manager so that I don't get a bunch of console errors
 
   constructor(
     private fb: FormBuilder,
     private snackbar: CustomSnackBarService,
     private firestore: Firestore,
-    private auth: AuthService
+    private auth: AuthService,
+    private bp: BreakpointService
   ) { }
 
   ngOnInit(): void {
-    this.scannerForm = this.fb.group({
-      searchField: [''],
-      showScanner: '',
-      openOrScan: {value: false, disabled: true}, //locked on false until open page works TODO: create logic for it to be false if not signed in
-    })
+
+    if (this.bp.currentScreenSize == 'XSmall') { //seporating out mobile for the default scanner on or off setting
+      
+      this.auth.user$.pipe(take(1)).subscribe(user => { //I only get this once because I only need it for the preloaded preference
+        this.scannerForm = this.fb.group({
+          searchField: [''],
+          showScanner: user.defaultScanner, 
+          openOrScan: {value: false, disabled: true}, //locked on false until open page works TODO: create logic for it to be false if not signed in
+        })
+        this.scannerTableStatus = 'ready' 
+
+      })
+    } else {
+      this.scannerForm = this.fb.group({
+        searchField: [''],
+        showScanner: '',
+        openOrScan: {value: false, disabled: true}, //locked on false until open page works TODO: create logic for it to be false if not signed in
+      })
+      this.scannerTableStatus = 'ready'
+    }
+
   }
 
   onCodeResult(resultString: string) {

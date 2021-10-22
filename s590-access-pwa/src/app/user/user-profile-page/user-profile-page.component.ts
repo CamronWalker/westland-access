@@ -24,6 +24,7 @@ export class UserProfilePageComponent implements OnInit {
     this.userProfileForm = this.fb.group({
       customString: '',
       defaultView: 'default',
+      defaultScanner: 'false',
     })
   }
 

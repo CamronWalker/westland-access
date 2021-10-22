@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutGap="15px" fxLayoutAlign="stretch flex-start">
+<div fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutGap="15px" fxLayoutAlign="stretch flex-start" *ngIf="scannerTableStatus == 'ready'; else loading">
     <div fxFlex="33.33" class="scanner-container mat-elevation-z6" *ngIf="scannerForm.controls['showScanner'].value === true">
         <!-- <div style="width: 100%; height: 100px; background-color: red;">
         </div> -->
@@ -26,3 +26,6 @@
     </div>
 
 </div>
+<ng-template #loading>
+    <mat-spinner id="main-loading-spinner"></mat-spinner>
+</ng-template>

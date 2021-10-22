@@ -36,9 +36,16 @@
                 <!-- Some FORM -->
                 <form [formGroup]="userProfileForm" appFireFormAutosave path="users/{{user.uid}}" (stateChange)="changeHandler($event)" >
 
-                    <mat-form-field>
+                    <!-- <mat-form-field>
                         <mat-label>Custom Data</mat-label>
                         <input matInput appearance="fill" formControlName="customString">
+                    </mat-form-field> -->
+
+                    <mat-form-field>
+                        <mat-select formControlName="defaultScanner" appearance="fill" placeholder="Default Mobile Scanner Mode">
+                            <mat-option [value]=true >Camera On</mat-option>
+                            <mat-option [value]=false >Camera Off</mat-option>
+                        </mat-select>
                     </mat-form-field>
 
                     <mat-form-field>
