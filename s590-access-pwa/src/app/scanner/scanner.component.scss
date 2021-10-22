@@ -1,0 +1,23 @@
+.input-container {
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+
+}
+mat-form-field {
+    width: 100%;
+}
+.scanner-container {
+    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+    //margin-bottom: -4px;
+ 
+
+}
+
+:host zxing-scanner::ng-deep { 
+    object-fit: contain;
+    margin-bottom: -4px; //required to get rid of a weird line under the video
+  }

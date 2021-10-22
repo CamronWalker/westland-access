@@ -26,7 +26,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 const components = [
   MainNavComponent,
@@ -57,8 +59,9 @@ const modules = [
   MatTableModule,
   MatSortModule,
   MatDialogModule,
-  MatTooltipModule
-
+  MatTooltipModule,
+  MatSlideToggleModule,
+  ZXingScannerModule
   
 ];
 

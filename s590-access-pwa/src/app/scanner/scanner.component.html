@@ -1,1 +1,27 @@
-<p>scanner works!</p>
+<div fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutGap="15px" fxLayoutAlign="stretch flex-start">
+    <div fxFlex="33.33" class="scanner-container mat-elevation-z6" *ngIf="scannerForm.controls['showScanner'].value === true">
+        <!-- <div style="width: 100%; height: 100px; background-color: red;">
+        </div> -->
+        <zxing-scanner (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+
+
+    </div>
+
+    <div fxFlex="33.33" class="input-container mat-elevation-z6" >
+        <form [formGroup]="scannerForm">
+            <mat-slide-toggle formControlName="showScanner" style="padding-bottom: 10px;" color="primary">{{scannerForm.controls['showScanner'].value ? 'Scanner Shown' :  'Scanner Hidden'}}</mat-slide-toggle>
+            <!-- Disabled until able to open the people page -->
+            <mat-slide-toggle formControlName="openOrScan" style="padding-bottom: 10px; padding-left: 10px;" color="primary">{{scannerForm.controls['openOrScan'].value ? 'Open Page' :  'Scan Badge'}}</mat-slide-toggle>
+
+            <mat-form-field id="search-input">
+                <mat-label>Search Badge Number</mat-label>
+                <input matInput appearance="fill" autofocus formControlName="searchField" (keyup.enter)="searchBadge()">
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div fxFlex="50" class="scans-table-container">
+        <!-- future use this to view the list -->
+    </div>
+
+</div>
