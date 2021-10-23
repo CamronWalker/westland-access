@@ -19,3 +19,20 @@ table {
 .mat-table-sticky-border-elem-right {
     padding-right: 0 !important;
 }
+
+.actions-card-container {
+    height: 100%;
+    border-radius: 10px;
+}
+
+.actions-card {
+    height: 100%;
+    border-radius: 10px;
+}
+
+mat-form-field {
+    width: calc(100% - 30px);
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
