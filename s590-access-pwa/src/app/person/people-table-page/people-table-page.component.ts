@@ -32,7 +32,7 @@ export class PeopleTablePageComponent implements OnInit {
 
     this.loadPeopleTable(15)
     this.peopleTableFilter.controls['peopleFilterValue'].valueChanges.pipe(debounceTime(1000)).subscribe(form => {
-      this.loadPeopleTable(15, form)
+      this.loadPeopleTable(15, form.toLowerCase())
     });
 
   }
