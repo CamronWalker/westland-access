@@ -1,4 +1,4 @@
-<div fxLayout="column" class="flex-container" fxLayoutGap="15px" fxFill>
+<div fxLayout="column" class="flex-container" fxLayoutGap="15px" fxFill *ngIf="tableStatus == 'complete'; else loading">
     <!-- <div fxFlex="10" fxFlex.gt-sm="10" class="actions-card-container">
         <div class="actions-card mat-elevation-z6 dark-card-background">
 
@@ -44,7 +44,7 @@
 
         <ng-container matColumnDef="trade">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Trade </th>
-            <td mat-cell *matCellDef="let person"> {{person.trade}} </td>
+            <td mat-cell *matCellDef="let person"> {{person.tradeName}} </td>
         </ng-container>
 
         <ng-container matColumnDef="actions" stickyEnd>
@@ -54,12 +54,23 @@
                     <mat-icon>more_vert</mat-icon>
                 </button>
             </td>
-          </ng-container>
+        </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns; let people"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; let people"></tr>
 
+    </table>
+
+    <table>
+        <tr *ngIf="!peopleData.data.length">
+          <td style="text-align: center; padding-top: 20px" >
+            No Records Found!
+          </td>
+        </tr>
     </table>
 </div>
 
 </div>
+<ng-template #loading>
+    <mat-spinner id="main-loading-spinner"></mat-spinner>
+</ng-template>
