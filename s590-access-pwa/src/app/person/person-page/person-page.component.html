@@ -1,57 +1,62 @@
-<mat-card id="person-card" class="mat-elevation-z6" *ngIf="personData">
-    <mat-card-header>
-        <mat-card-title>
-            {{personData.firstName}} {{personData.lastName}}
-        </mat-card-title>
-        <mat-card-subtitle>
-            {{personData.badgeNum}}
-        </mat-card-subtitle>
-    </mat-card-header>
+<div *ngIf="personData; else loading">
+    <mat-card id="person-card" class="mat-elevation-z6">
+        <mat-card-header>
+            <mat-card-title>
+                {{personData.firstName}} {{personData.lastName}}
+            </mat-card-title>
+            <mat-card-subtitle>
+                {{personData.badgeNum}}
+            </mat-card-subtitle>
+        </mat-card-header>
 
-    <form [formGroup]="personForm" appFireFormAutosave path="projects/S590/people/{{badgeNumParam}}" (stateChange)="changeHandler($event)" >
+        <form [formGroup]="personForm" appFireFormAutosave path="projects/S590/people/{{badgeNumParam}}" (stateChange)="changeHandler($event)" >
 
-        <mat-form-field>
-            <mat-label>First Name</mat-label>
-            <input matInput appearance="fill" formControlName="firstName">
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput appearance="fill" formControlName="firstName">
+            </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Last Name</mat-label>
-            <input matInput appearance="fill" formControlName="lastName">
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput appearance="fill" formControlName="lastName">
+            </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Company Name</mat-label>
-            <input matInput appearance="fill" formControlName="companyName">
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Company Name</mat-label>
+                <input matInput appearance="fill" formControlName="companyName">
+            </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Trade Name</mat-label>
-            <input matInput appearance="fill" formControlName="tradeName">
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Trade Name</mat-label>
+                <input matInput appearance="fill" formControlName="tradeName">
+            </mat-form-field>
 
-        <mat-form-field>
-            <!-- status: 'Allowed' | 'No Access' | 'Escort Required' | 'See Description'; -->
-            <mat-select formControlName="status" appearance="fill" placeholder="Status">
-                <mat-option value="Allowed">Allowed</mat-option>
-                <mat-option value="No Access">No Access</mat-option>
-                <mat-option value="Escort Required">Escort Required</mat-option>
-                <mat-option value="See Description">See Description</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <mat-form-field>
+                <!-- status: 'Allowed' | 'No Access' | 'Escort Required' | 'See Description'; -->
+                <mat-select formControlName="status" appearance="fill" placeholder="Status">
+                    <mat-option value="Allowed">Allowed</mat-option>
+                    <mat-option value="No Access">No Access</mat-option>
+                    <mat-option value="Escort Required">Escort Required</mat-option>
+                    <mat-option value="See Description">See Description</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Status Description</mat-label>
-            <input matInput appearance="fill" formControlName="statusDesc">
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Status Description</mat-label>
+                <input matInput appearance="fill" formControlName="statusDesc">
+            </mat-form-field>
 
 
-    
-        <button mat-raised-button color="primary" ngSubmit>Save</button>
-    
-    </form>
-    <br>
-    <mat-card-footer>
-        <mat-progress-bar [mode]="state == 'modified' ? 'indeterminate' : 'determinate'" value="100" [ngClass]="'form-status-' + state"></mat-progress-bar>
-    </mat-card-footer>
-</mat-card>
+        
+            <button mat-raised-button color="primary" ngSubmit>Save</button>
+        
+        </form>
+        <br>
+        <mat-card-footer>
+            <mat-progress-bar [mode]="state == 'modified' ? 'indeterminate' : 'determinate'" value="100" [ngClass]="'form-status-' + state"></mat-progress-bar>
+        </mat-card-footer>
+    </mat-card>
+</div>
+<ng-template #loading>
+    <mat-spinner id="main-loading-spinner"></mat-spinner>
+</ng-template>

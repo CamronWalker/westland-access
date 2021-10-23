@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { doc, Firestore } from '@angular/fire/firestore';
+import { doc, Firestore, docData } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { docData } from 'rxfire/firestore';
 import { CustomSnackBarService } from 'src/app/shared/services/custom-snackbar.service';
 
 @Component({
