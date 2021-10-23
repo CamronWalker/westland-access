@@ -28,34 +28,34 @@ export class PeopleTablePageComponent implements OnInit {
       peopleFilterValue: '',
     })
 
-    if (this.peopleTableFilter.get('peopleFilterValue')?.value) {
-      
-    } else {
 
-    }
-
+    this.loadPeopleTable(15)
     this.peopleTableFilter.controls['peopleFilterValue'].valueChanges.pipe(debounceTime(1000)).subscribe(form => {
       console.log(form)
-      if (form == '') {
-        console.log(form)
-        const peopleRef = collection(this.firestore, 'projects/S590/people')
-        const peopleColQuery = query(peopleRef, orderBy('badgeNum', 'asc'), limit(15))
-
-        collectionData(peopleColQuery, { idField: 'id' }).subscribe(scans => {
-          this.peopleData = new MatTableDataSource(scans)
-          this.peopleData.sort = this.sort
-        })
-      } else {
-        const peopleRef = collection(this.firestore, 'projects/S590/people')
-        const peopleColQuery = query(peopleRef, orderBy('badgeNum', 'asc'), where('searchArray', 'array-contains', form), limit(1))
-
-        collectionData(peopleColQuery, { idField: 'id' }).subscribe(scans => {
-          this.peopleData = new MatTableDataSource(scans)
-          this.peopleData.sort = this.sort
-        })
-      }
+      this.loadPeopleTable(15, form)
     });
 
   }
 
+
+  loadPeopleTable(lengthLimit: number, whereFilter?: string) {
+    if (whereFilter) {
+      console.log(whereFilter)
+      const peopleRef = collection(this.firestore, 'projects/S590/people')
+      const peopleColQuery = query(peopleRef, orderBy('badgeNum', 'asc'), where('searchArray', 'array-contains', whereFilter), limit(lengthLimit))
+
+      collectionData(peopleColQuery, { idField: 'id' }).subscribe(scans => {
+        this.peopleData = new MatTableDataSource(scans)
+        this.peopleData.sort = this.sort
+      })
+    } else {
+      const peopleRef = collection(this.firestore, 'projects/S590/people')
+      const peopleColQuery = query(peopleRef, orderBy('badgeNum', 'asc'), limit(lengthLimit))
+
+      collectionData(peopleColQuery, { idField: 'id' }).subscribe(scans => {
+        this.peopleData = new MatTableDataSource(scans)
+        this.peopleData.sort = this.sort
+      })
+    }
+  }
 }
