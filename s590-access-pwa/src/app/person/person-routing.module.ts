@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProjectUserGuard } from '../shared/project-user.guard';
 import { PeopleTablePageComponent } from './people-table-page/people-table-page.component';
+import { PersonPageComponent } from './person-page/person-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'table', pathMatch: 'full'},
   {
     path: 'table',
     component: PeopleTablePageComponent,
+    canActivate: [ProjectUserGuard]
+  },
+  {
+    path:':personId', component: PersonPageComponent,
+    canActivate: [ProjectUserGuard]
   }
 ];
 

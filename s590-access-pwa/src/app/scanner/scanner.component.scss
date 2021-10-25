@@ -20,6 +20,7 @@ mat-form-field {
 :host zxing-scanner::ng-deep { 
     object-fit: contain;
     margin-bottom: -4px; //required to get rid of a weird line under the video
+    max-height: 30vh; //temp fix until i use the same thing i did on the people table
   }
 
   .scans-table-container {

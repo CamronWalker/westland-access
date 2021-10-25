@@ -7,7 +7,7 @@
 
 table {
     width: 100%;
-    height: 100%;
+    //height: 100%; Don't actually want this because it stretches search rows to 100%
 }
 
 ::-webkit-scrollbar {
