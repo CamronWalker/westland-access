@@ -28,7 +28,7 @@ export class ProjectUserGuard implements CanActivate {
             console.log('guard allowed')
             pu(true)
           } else {
-            this.snackbar.error('Not Authorized', 4000, 'top')
+            this.snackbar.error('Not Authorized! Request access from Camron.', 4000, 'top')
             pu(false)
           }
         })
