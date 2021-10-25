@@ -44,8 +44,8 @@ export class ScannerComponent implements OnInit {
   loadScannerForm(defaultScanner?: boolean) {
     defaultScanner ? defaultScanner : ''
     this.scannerForm = this.fb.group({
-      searchField: [''],
-      showScanner: defaultScanner, 
+      searchField: ['', [Validators.required, Validators.minLength(1)]],
+      showScanner: [defaultScanner], 
       openOrScan: {value: false, disabled: true}, //locked on false until open page works TODO: create logic for it to be false if not signed in
     })
     this.scannerTableStatus = 'ready'
@@ -60,33 +60,33 @@ export class ScannerComponent implements OnInit {
   }
 
   searchBadge() {
+    if (this.scannerForm.valid) {
+        const badgeNum = parseInt(this.searchField?.value)
 
-    const badgeNum = parseInt(this.searchField?.value)
+        const personRef = doc(this.firestore, `projects/S590/people/${badgeNum}`)
 
-    const personRef = doc(this.firestore, `projects/S590/people/${badgeNum}`)
-
-    getDoc(personRef).then(async docSnapshot => {
-      if (docSnapshot.exists()) {
+        getDoc(personRef).then(async docSnapshot => {
+          if (docSnapshot.exists()) {
+            
+            switch(docSnapshot.data().status) {
+              case 'Allowed': {
+                this.snackbar.success(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${badgeNum} ) - ${docSnapshot.data().status}`, 4000, 'top');
+                break;
+              }
+              case 'No Access': {
+                this.snackbar.error(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${badgeNum} ) - ${docSnapshot.data().status}`, 4000, 'top');
+                break;
+              }
+              case 'Escort Required': {
+                this.snackbar.warning(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${badgeNum} ) - ${docSnapshot.data().status}`, 4000, 'top');
+                break;
+              }
+              case 'See Description': {
+                this.snackbar.info(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${badgeNum} ) - ${docSnapshot.data().status}`, 4000, 'top');
+                break;
+              }
+            }
         
-        switch(docSnapshot.data().status) {
-          case 'Allowed': {
-            this.snackbar.success(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${badgeNum} ) - ${docSnapshot.data().status}`, 4000, 'top');
-            break;
-          }
-          case 'No Access': {
-            this.snackbar.error(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${badgeNum} ) - ${docSnapshot.data().status}`, 4000, 'top');
-            break;
-          }
-          case 'Escort Required': {
-            this.snackbar.warning(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${badgeNum} ) - ${docSnapshot.data().status}`, 4000, 'top');
-            break;
-          }
-          case 'See Description': {
-            this.snackbar.info(`${docSnapshot.data().firstName} ${docSnapshot.data().lastName} ( ${badgeNum} ) - ${docSnapshot.data().status}`, 4000, 'top');
-            break;
-          }
-        }
-       
           this.auth.user$.subscribe(async user => {
             if (user) {
               await addDoc(collection(this.firestore, "projects/S590/scans/"), {
@@ -110,18 +110,19 @@ export class ScannerComponent implements OnInit {
               })
             }
           })
-      
+        
 
-      } else {
-        this.snackbar.error(`${badgeNum} doesn't exist in project S590`, 4000, 'top')
+          } else {
+            this.snackbar.error(`${badgeNum} doesn't exist in project S590`, 4000, 'top')
 
-      }
+          }
 
-    })
-
-  
+        })
 
       this.searchField?.patchValue('')
+    } else {
+      console.log('form not valid')
+    }
   }
 
   get searchField() {
