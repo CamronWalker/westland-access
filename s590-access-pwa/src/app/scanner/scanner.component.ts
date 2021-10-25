@@ -30,23 +30,25 @@ export class ScannerComponent implements OnInit {
     if (this.bp.currentScreenSize == 'XSmall') { //seporating out mobile for the default scanner on or off setting
       
       this.auth.user$.pipe(take(1)).subscribe(user => { //I only get this once because I only need it for the preloaded preference
-        this.scannerForm = this.fb.group({
-          searchField: [''],
-          showScanner: user.defaultScanner, 
-          openOrScan: {value: false, disabled: true}, //locked on false until open page works TODO: create logic for it to be false if not signed in
-        })
-        this.scannerTableStatus = 'ready' 
-
+        if (user) {
+          this.loadScannerForm(user.defaultScanner)
+        } else {
+          this.loadScannerForm()
+        }
       })
     } else {
-      this.scannerForm = this.fb.group({
-        searchField: [''],
-        showScanner: '',
-        openOrScan: {value: false, disabled: true}, //locked on false until open page works TODO: create logic for it to be false if not signed in
-      })
-      this.scannerTableStatus = 'ready'
+      this.loadScannerForm()
     }
+  }
 
+  loadScannerForm(defaultScanner?: boolean) {
+    defaultScanner ? defaultScanner : ''
+    this.scannerForm = this.fb.group({
+      searchField: [''],
+      showScanner: defaultScanner, 
+      openOrScan: {value: false, disabled: true}, //locked on false until open page works TODO: create logic for it to be false if not signed in
+    })
+    this.scannerTableStatus = 'ready'
   }
 
   onCodeResult(resultString: string) {
