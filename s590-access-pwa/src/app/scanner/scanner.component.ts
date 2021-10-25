@@ -113,7 +113,7 @@ export class ScannerComponent implements OnInit {
       
 
       } else {
-        this.snackbar.error(`${badgeNum} doesn't exist in ${badgeNum}`, 4000, 'top')
+        this.snackbar.error(`${badgeNum} doesn't exist in project S590`, 4000, 'top')
 
       }
 
