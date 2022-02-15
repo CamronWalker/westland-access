@@ -9,11 +9,15 @@ mat-form-field {
     width: 100%;
 }
 .scanner-container {
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
     overflow: hidden;
-    display: block;
+    //display: block;
     //margin-bottom: -4px;
- 
+    // -webkit-mask-image: -webkit-radial-gradient(white, black); //This breaks the shadow elevation but fixes the corner rounding issue on ios
+    // transform: translateZ(0); //should fix the shadow
 
 }
 
