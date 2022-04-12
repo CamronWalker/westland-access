@@ -1,1 +1,64 @@
-<p>person-new-page works!</p>
+
+<mat-card id="person-card" class="mat-elevation-z6">
+    <mat-card-header>
+        <mat-card-title>
+            New Person
+        </mat-card-title>
+
+    </mat-card-header>
+
+    <form [formGroup]="newPersonForm" >  <!--appFireFormAutosave path="projects/S590/people/{{badgeNum}}" (stateChange)="changeHandler($event)"--> 
+        <mat-form-field>
+            <mat-label>Badge Number</mat-label>
+            <input matInput appearance="fill" formControlName="badgeNum" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput appearance="fill" formControlName="firstName" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput appearance="fill" formControlName="lastName" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Company Name</mat-label>
+            <input matInput appearance="fill" formControlName="companyName" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Trade Name</mat-label>
+            <input matInput appearance="fill" formControlName="tradeName" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field>
+            <!-- status: 'Allowed' | 'No Access' | 'Escort Required' | 'See Description'; -->
+            <mat-select formControlName="status" appearance="fill" placeholder="Status">
+                <mat-option value="Allowed">Allowed</mat-option>
+                <mat-option value="No Access">No Access</mat-option>
+                <mat-option value="Escort Required">Escort Required</mat-option>
+                <mat-option value="See Description">See Description</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Status Description</mat-label>
+            <input matInput appearance="fill" formControlName="statusDesc" autocomplete="off">
+        </mat-form-field>
+
+
+    
+        <button mat-raised-button color="primary" ngSubmit>Add Person</button>
+    
+    </form>
+    <br>
+    <mat-card-footer>
+        <mat-progress-bar [mode]="state == 'modified' ? 'indeterminate' : 'determinate'" value="100" [ngClass]="'form-status-' + state"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>
+
+<ng-template #loading>
+    <mat-spinner id="main-loading-spinner"></mat-spinner>
+</ng-template>

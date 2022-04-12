@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 100%;
+}
+
+#person-card {
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    // -webkit-mask-image: -webkit-radial-gradient(white, black); //This breaks the shadow elevation
+    // transform: translateZ(0); //should fix the shadow
+}
