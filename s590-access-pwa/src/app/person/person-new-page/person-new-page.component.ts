@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { collection, collectionData, Firestore, query, where } from '@angular/fire/firestore';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomSnackBarService } from 'src/app/shared/services/custom-snackbar.service';
+import { map, take, debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-person-new-page',
@@ -20,12 +21,28 @@ export class PersonNewPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.newPersonForm = this.fb.group({
-      badgeNum: '',
-      firstName: '',
-      lastName: '',
-      companyName: '',
-      tradeName: '',
-      status: '',
+      badgeNum: ['', [
+        Validators.required,
+        Validators.pattern(/^(?:(?:[1-9][0-9]*)|0)$/),
+        Validators.maxLength(4),
+        BadgeNumValidator.badgeNum(this.firestore)
+
+      ]],
+      firstName: ['', [
+        Validators.required
+      ]],
+      lastName: ['', [
+        Validators.required
+      ]],
+      companyName: ['', [
+        Validators.required
+      ]],
+      tradeName: ['', [
+        Validators.required
+      ]],
+      status: ['', [
+        Validators.required
+      ]],
       statusDesc: '',
     })
   }
@@ -33,5 +50,21 @@ export class PersonNewPageComponent implements OnInit {
 
   changeHandler(e: any) {
     this.state = e
+  }
+}
+
+export class BadgeNumValidator {
+  static badgeNum(firestore: Firestore) {
+    return (control: AbstractControl) => {
+      const badgeNum = control.value
+      const badgeNumColRef = collection(firestore, `projects/S590/people`)
+      const badgeNumColRefQuery = query(badgeNumColRef, where('badgeNum', '==', badgeNum))
+
+      collectionData(badgeNumColRefQuery, { idField: 'id'}).pipe(
+        debounceTime(500),
+        take(1),
+        map(arr => arr.length ? { badgeNumAvailable: false } : null ),
+      )
+    }
   }
 }
