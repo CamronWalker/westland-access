@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { collection, collectionData, Firestore, query, where } from '@angular/fire/firestore';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { CustomSnackBarService } from 'src/app/shared/services/custom-snackbar.service';
 import { map, take, debounceTime} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-person-new-page',
@@ -25,9 +26,9 @@ export class PersonNewPageComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^(?:(?:[1-9][0-9]*)|0)$/),
         Validators.maxLength(4),
-        BadgeNumValidator.badgeNum(this.firestore)
-
-      ]],
+        ],
+        // this.BadgeNumValidator
+      ],
       firstName: ['', [
         Validators.required
       ]],
@@ -51,20 +52,68 @@ export class PersonNewPageComponent implements OnInit {
   changeHandler(e: any) {
     this.state = e
   }
-}
 
-export class BadgeNumValidator {
-  static badgeNum(firestore: Firestore) {
-    return (control: AbstractControl) => {
-      const badgeNum = control.value
-      const badgeNumColRef = collection(firestore, `projects/S590/people`)
-      const badgeNumColRefQuery = query(badgeNumColRef, where('badgeNum', '==', badgeNum))
 
-      collectionData(badgeNumColRefQuery, { idField: 'id'}).pipe(
-        debounceTime(500),
-        take(1),
-        map(arr => arr.length ? { badgeNumAvailable: false } : null ),
-      )
-    }
+  get badgeNum() {
+    return this.newPersonForm.get('badgeNum')
   }
+
+//   BadgeNumValidator(control: FormControl): Promise<any> | Observable<any> {
+//     console.log(control.value)
+//     const response = new Promise((resolve, reject)=> {
+//       const badgeNumConst = control.value
+//       const badgeNumColRef = collection(this.firestore, 'projects/S590/people')
+//       const badgeNumColRefQuery = query(badgeNumColRef, where('badgeNum', '==', badgeNumConst))
+
+//       collectionData(badgeNumColRefQuery, { idField: 'id'}).pipe(
+//         debounceTime(500),
+//         take(1),
+//         map(arr => arr.length ? resolve({ badgeNumAvailable: false }) : resolve(null) ),
+//       )
+
+//     })
+//     console.log(response)
+//     return response;
+//   }
+// }
+
+// export class BadgeNumValidator {
+//   static checkIfBadgeNumExists(firestore: Firestore) {
+//     return new Promise<ValidationErrors | null> (resolve => {
+//       (control: AbstractControl) => {
+//         const badgeNum = control.value
+//         const badgeNumColRef = collection(firestore, `projects/S590/people`)
+//         const badgeNumColRefQuery = query(badgeNumColRef, where('badgeNum', '==', badgeNum))
+  
+//         collectionData(badgeNumColRefQuery, { idField: 'id'}).pipe(
+//           debounceTime(500),
+//           take(1),
+//           map(arr => arr.length ? { badgeNumAvailable: false } : null ),
+//         )
+        
+//       }
+//     })
+
+
+
+
+
+
+//     // return new Promise (resolve => {
+//     //   (control: AbstractControl) => {
+//     //     const badgeNum = control.value
+//     //     const badgeNumColRef = collection(firestore, `projects/S590/people`)
+//     //     const badgeNumColRefQuery = query(badgeNumColRef, where('badgeNum', '==', badgeNum))
+  
+//     //     collectionData(badgeNumColRefQuery, { idField: 'id'}).pipe(
+//     //       debounceTime(500),
+//     //       take(1),
+//     //       map(arr => arr.length ? { badgeNumAvailable: false } : null ),
+//     //     )
+//     //   }
+//     // })
+    
+     
+
+//   }
 }

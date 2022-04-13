@@ -11,6 +11,11 @@
         <mat-form-field>
             <mat-label>Badge Number</mat-label>
             <input matInput appearance="fill" formControlName="badgeNum" autocomplete="off">
+            <mat-error *ngIf="badgeNum!.invalid && badgeNum!.dirty">
+                Badge Number {{badgeNum!.value}} Taken!
+            </mat-error>
+            <mat-icon matSuffix *ngIf="badgeNum!.valid">check_circle</mat-icon>
+            <mat-spinner matSuffix [diameter]="18" style="display: inline-flex" *ngIf="badgeNum!.pending"></mat-spinner>
         </mat-form-field>
 
         <mat-form-field>
@@ -47,10 +52,8 @@
             <mat-label>Status Description</mat-label>
             <input matInput appearance="fill" formControlName="statusDesc" autocomplete="off">
         </mat-form-field>
-
-
     
-        <button mat-raised-button color="primary" ngSubmit>Add Person</button>
+        <button mat-raised-button color="primary" ngSubmit [disabled]="newPersonForm.invalid">Add Person</button>
     
     </form>
     <br>
@@ -62,3 +65,4 @@
 <ng-template #loading>
     <mat-spinner id="main-loading-spinner"></mat-spinner>
 </ng-template>
+
