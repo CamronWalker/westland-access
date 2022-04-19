@@ -29,10 +29,18 @@ table {
     height: 100%;
     border-radius: 10px;
 }
-
 mat-form-field {
     width: calc(100% - 30px);
     padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.search-bar {
+    width: calc(100% - 150px);
+    display: inline-block;
+    padding-right: 15px;
+}
+.add-user {
+    display: inline-block;
 }

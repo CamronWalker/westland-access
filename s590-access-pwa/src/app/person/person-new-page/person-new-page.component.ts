@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { collection, collectionData, Firestore, query, where } from '@angular/fire/firestore';
+import { doc, setDoc, Firestore, query, where } from '@angular/fire/firestore';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { CustomSnackBarService } from 'src/app/shared/services/custom-snackbar.service';
 import { map, take, debounceTime} from 'rxjs/operators';
@@ -55,7 +55,63 @@ export class PersonNewPageComponent implements OnInit {
 
 
   get badgeNum() {
-    return this.newPersonForm.get('badgeNum')
+    return this.newPersonForm.get('badgeNum')?.value
+  }
+  get firstName() {
+    return this.newPersonForm.get('firstName')?.value
+  }
+  get lastName() {
+    return this.newPersonForm.get('lastName')?.value
+  }
+  get companyName() {
+    return this.newPersonForm.get('companyName')?.value
+  }
+  get tradeName() {
+    return this.newPersonForm.get('tradeName')?.value
+  }
+  get status() {
+    return this.newPersonForm.get('status')?.value
+  }
+  get statusDesc() {
+    return this.newPersonForm.get('statusDesc')?.value
+  }
+
+  addUserEvent() {
+    //console.log(this.badgeNum.toString().length);
+
+    const searchArrayBuilder = []
+    const fullName = this.firstName + ' ' + this.lastName
+    
+
+    // Create search array that I use to filter the People Table
+    for (var i = 0; i < this.badgeNum.toString().length; i++) {
+      searchArrayBuilder.push(this.badgeNum.toString().substring(0, i+1))
+    }
+    for ( var i = 0; i < fullName.length; i++) {
+      searchArrayBuilder.push(fullName.substring(0, i+1))
+    }
+    for ( var i = 0; i < this.lastName.length; i++) {
+      searchArrayBuilder.push(this.lastName.substring(0, i+1))
+    }
+    for ( var i = 0; i < this.companyName.length; i++) {
+      searchArrayBuilder.push(this.companyName.substring(0, i+1))
+    }
+
+    const newUserData = {
+      badgeNum: this.badgeNum,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      companyName: this.companyName,
+      tradeName: this.tradeName,
+      status: this.status,
+      statusDesc: this.statusDesc,
+      searchArray: searchArrayBuilder,
+    }
+
+    console.log(newUserData)
+
+    setDoc(doc(this.firestore, `projects/S590/people`, this.badgeNum), newUserData, { merge:true })
+
   }
 
 //   BadgeNumValidator(control: FormControl): Promise<any> | Observable<any> {

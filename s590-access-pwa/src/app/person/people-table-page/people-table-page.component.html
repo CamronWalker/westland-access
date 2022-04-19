@@ -7,13 +7,15 @@
 
 <div fxFlex="100" fxFlex.gt-sm="100" class="people-table-container mat-elevation-z6">
     <div class="form-filter-class">
-        <form [formGroup]="peopleTableFilter">
+        <form [formGroup]="peopleTableFilter" class="search-bar">
 
             <mat-form-field>
                 <mat-label>Table Search</mat-label>
                 <input matInput appearance="fill" formControlName="peopleFilterValue">
             </mat-form-field>
+            
         </form>
+        <button mat-raised-button color="primary" routerLink="/p/new" class="add-user">Add Person</button>
     </div>
 
     <table mat-table [dataSource]="peopleData" matSort matSortActive="id" matSortDirection="asc" class="mat-elevation-z6 people-table" options="{height: 50}">
