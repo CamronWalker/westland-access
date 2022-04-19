@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors,
 import { CustomSnackBarService } from 'src/app/shared/services/custom-snackbar.service';
 import { map, take, debounceTime} from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person-new-page',
@@ -17,7 +18,8 @@ export class PersonNewPageComponent implements OnInit {
   constructor(
     private snackbar: CustomSnackBarService,
     private fb: FormBuilder,
-    private firestore: Firestore
+    private firestore: Firestore,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -76,7 +78,7 @@ export class PersonNewPageComponent implements OnInit {
     return this.newPersonForm.get('statusDesc')?.value
   }
 
-  addUserEvent() {
+  async addUserEvent() {
     //console.log(this.badgeNum.toString().length);
 
     const searchArrayBuilder = []
@@ -110,7 +112,12 @@ export class PersonNewPageComponent implements OnInit {
 
     console.log(newUserData)
 
-    setDoc(doc(this.firestore, `projects/S590/people`, this.badgeNum), newUserData, { merge:true })
+    await setDoc(doc(this.firestore, `projects/S590/people`, this.badgeNum), newUserData, { merge:true }).then( res => {
+      this.snackbar.success('User Added', 4000, 'top')
+      this.router.navigate([`/p/${this.badgeNum}`])
+    }).catch(res => {
+      this.snackbar.error('There was an error creating this person. Try Again Later', 4000, 'top')
+    })
 
   }
 
